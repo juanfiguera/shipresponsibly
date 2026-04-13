@@ -1,0 +1,617 @@
+:root {
+  --black: #0a0a0a;
+  --cream: #f5f0e8;
+  --gold: #c9a84c;
+  --gold-dim: #a88a3a;
+  --red: #c0392b;
+  --red-soft: #e74c3c;
+  --green: #27ae60;
+  --gray: #6b6b6b;
+  --gray-light: #b5b0a6;
+  --border: #d4cfc4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, var(--border) 79px, var(--border) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, var(--border) 79px, var(--border) 80px);
+  background-size: 80px 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 30%, var(--cream) 75%);
+  pointer-events: none;
+}
+
+.badge {
+  position: relative; z-index: 1;
+  display: inline-block;
+  border: 3px solid var(--black);
+  border-radius: 999px;
+  padding: 0.4rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  background: var(--cream);
+  animation: fadeDown 0.8s ease both;
+}
+
+.hero h1 {
+  position: relative; z-index: 1;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  animation: fadeDown 0.8s 0.15s ease both;
+}
+
+.hero h1 .line2 { display: block; color: var(--red); }
+
+.hero .subtitle {
+  position: relative; z-index: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.8rem, 1.8vw, 1.05rem);
+  color: var(--gray);
+  max-width: 550px;
+  line-height: 1.7;
+  animation: fadeDown 0.8s 0.3s ease both;
+}
+
+.scroll-cue {
+  position: absolute; bottom: 2rem; z-index: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  animation: pulse 2s ease-in-out infinite;
+}
+.scroll-cue::after { content: '↓'; display: block; text-align: center; margin-top: 0.3rem; font-size: 1rem; }
+
+/* ── WARNING LABEL ── */
+.warning-section {
+  padding: 5rem 2rem;
+  display: flex;
+  justify-content: center;
+  background: var(--cream);
+  position: relative;
+}
+
+.warning-box {
+  max-width: 700px;
+  width: 100%;
+  border: 4px solid var(--black);
+  padding: 2.5rem;
+  position: relative;
+  background: var(--cream);
+}
+
+.warning-box::before {
+  content: '⚠';
+  position: absolute;
+  top: -1.1rem;
+  left: 2rem;
+  background: var(--cream);
+  padding: 0 0.8rem;
+  font-size: 1.5rem;
+}
+
+.warning-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--red);
+}
+
+.warning-box p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.warning-box p:last-child { margin-bottom: 0; }
+
+.warning-box em {
+  font-style: italic;
+  color: var(--red);
+}
+
+/* ── SPECTRUM ── */
+.spectrum-section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 0.75rem;
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+}
+
+.spectrum { display: flex; flex-direction: column; border: 3px solid var(--black); overflow: hidden; }
+
+.spectrum-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 100px;
+  border-bottom: 2px solid var(--black);
+  transition: background 0.2s;
+}
+.spectrum-row:last-child { border-bottom: none; }
+.spectrum-row:hover { background: rgba(0,0,0,0.03); }
+
+.spectrum-row .level {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 1.2rem;
+  border-right: 2px solid var(--black);
+  display: flex; align-items: center;
+}
+
+.spectrum-row .desc {
+  padding: 1.2rem; font-size: 0.95rem; line-height: 1.5;
+  display: flex; align-items: center;
+}
+
+.spectrum-row .verdict {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; font-weight: 700; padding: 1.2rem;
+  border-left: 2px solid var(--black);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+
+.verdict.safe { color: var(--green); }
+.verdict.caution { color: var(--gold-dim); }
+.verdict.danger { color: var(--red); }
+
+/* ── QUIZ ── */
+.quiz-section { padding: 5rem 2rem; background: var(--black); color: var(--cream); }
+
+.quiz-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+.quiz-inner .section-label { color: var(--gray); }
+.quiz-inner .section-heading { color: var(--cream); margin-bottom: 1rem; }
+.quiz-inner .quiz-subtitle { font-size: 1rem; color: var(--gray); margin-bottom: 3rem; line-height: 1.6; }
+
+.quiz-card { border: 2px solid rgba(255,255,255,0.15); padding: 2.5rem; text-align: left; }
+
+.quiz-question { font-family: 'Playfair Display', serif; font-size: 1.3rem; line-height: 1.5; margin-bottom: 2rem; }
+
+.quiz-options { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.quiz-btn {
+  background: transparent; border: 2px solid rgba(255,255,255,0.2); color: var(--cream);
+  padding: 1rem 1.3rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+  cursor: pointer; text-align: left; transition: all 0.2s;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.quiz-btn:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+.quiz-btn.selected { border-color: var(--gold); background: rgba(201,168,76,0.15); }
+
+.quiz-btn .letter {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+  width: 1.8rem; height: 1.8rem; border: 1px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+.quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; }
+
+.quiz-counter { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--gray); }
+
+.quiz-next {
+  background: var(--gold); color: var(--black); border: none;
+  padding: 0.8rem 2rem; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+}
+.quiz-next:hover { background: var(--gold-dim); }
+.quiz-next:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* ── RESULT ── */
+.result-card { border: 2px solid rgba(255,255,255,0.15); padding: 2.5rem; text-align: center; display: none; }
+.result-card.visible { display: block; }
+
+.result-score { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; }
+.result-score.low { color: var(--green); }
+.result-score.mid { color: var(--gold); }
+.result-score.high { color: var(--red); }
+
+.result-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--gray); }
+
+.result-msg { font-family: 'Playfair Display', serif; font-size: 1.15rem; line-height: 1.5; margin-bottom: 2rem; }
+
+.retake-btn {
+  background: transparent; border: 2px solid rgba(255,255,255,0.2); color: var(--cream);
+  padding: 0.8rem 2rem; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+}
+.retake-btn:hover { border-color: var(--gold); }
+
+.playbook-cta {
+  display: inline-block;
+  background: var(--gold); color: var(--black); border: 2px solid var(--gold);
+  padding: 0.8rem 2rem; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; text-decoration: none; cursor: pointer;
+  transition: all 0.2s; margin-top: 0.75rem;
+}
+.playbook-cta:hover { background: var(--gold-dim); border-color: var(--gold-dim); }
+
+/* ── HORROR STORIES ── */
+.horror-section {
+  padding: 5rem 2rem;
+  background: var(--cream);
+}
+
+.horror-inner { max-width: 800px; margin: 0 auto; }
+
+.horror-subtitle {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.horror-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.horror-card {
+  background: var(--black);
+  color: var(--cream);
+  padding: 2rem 2rem 2rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.horror-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
+}
+
+.horror-card.cat-payments::before { background: var(--red); }
+.horror-card.cat-security::before { background: var(--gold); }
+.horror-card.cat-data::before { background: #3498db; }
+
+.horror-card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.horror-card.cat-payments .horror-card-tag { color: var(--red-soft); border-color: rgba(192,57,43,0.3); }
+.horror-card.cat-security .horror-card-tag { color: var(--gold); border-color: rgba(201,168,76,0.3); }
+.horror-card.cat-data .horror-card-tag { color: #5dade2; border-color: rgba(52,152,219,0.3); }
+
+.horror-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.horror-attr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+}
+
+.horror-submit-card {
+  border: 3px solid var(--black);
+  padding: 2rem;
+  background: var(--cream);
+}
+
+.horror-submit-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.horror-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  outline: none;
+  resize: vertical;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+.horror-textarea::placeholder { color: var(--gray-light); }
+.horror-textarea:focus { border-color: var(--gold); }
+
+.horror-submit-row { display: flex; gap: 0.75rem; }
+
+.horror-role-input {
+  flex: 1; padding: 0.8rem 1rem;
+  border: 2px solid var(--border);
+  background: transparent; color: var(--black);
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  outline: none; transition: border-color 0.2s;
+}
+.horror-role-input::placeholder { color: var(--gray-light); }
+.horror-role-input:focus { border-color: var(--gold); }
+
+.horror-submit-btn {
+  background: var(--black); color: var(--cream);
+  border: 2px solid var(--black);
+  padding: 0.8rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.horror-submit-btn:hover { background: var(--red); border-color: var(--red); }
+
+.horror-success {
+  display: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem; color: var(--green);
+  letter-spacing: 0.05em; padding: 1.5rem;
+  border: 2px solid rgba(39,174,96,0.3);
+  margin-top: 1.5rem; text-align: center;
+}
+.horror-success.visible { display: block; }
+
+/* ── PLEDGE ── */
+.pledge-section {
+  padding: 6rem 2rem;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.pledge-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.pledge-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+
+.pledge-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  line-height: 1.55;
+  font-style: italic;
+  margin-bottom: 2.5rem;
+  color: var(--black);
+}
+
+.pledge-text strong {
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 3px;
+}
+
+.pledge-input-row { display: flex; gap: 0.75rem; max-width: 480px; margin: 0 auto 1.5rem; }
+
+.pledge-input {
+  flex: 1; padding: 0.9rem 1.2rem;
+  border: 2px solid var(--black); background: transparent;
+  font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+  outline: none; transition: border-color 0.2s;
+}
+.pledge-input:focus { border-color: var(--gold); }
+
+.pledge-submit {
+  background: var(--black); color: var(--cream);
+  border: 2px solid var(--black);
+  padding: 0.9rem 1.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.pledge-submit:hover { background: var(--red); border-color: var(--red); }
+
+.pledge-wall {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  justify-content: center; max-width: 600px; margin: 0 auto;
+}
+
+.pledge-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.05em;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border); color: var(--gray);
+  animation: fadeDown 0.4s ease both;
+}
+
+/* ── BOOK SECTION ── */
+.book-section { padding: 5rem 2rem; background: var(--black); color: var(--cream); }
+
+.book-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.book-inner .section-label { color: var(--gray); }
+.book-inner .section-heading { color: var(--cream); margin-bottom: 1rem; }
+
+.book-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; color: var(--gray);
+  line-height: 1.65; margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 2px solid rgba(255,255,255,0.1);
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.book-item {
+  padding: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.2s;
+}
+.book-item:nth-child(2n) { border-right: none; }
+.book-item:nth-last-child(-n+2) { border-bottom: none; }
+.book-item:hover { background: rgba(255,255,255,0.03); }
+
+.book-item.bonus {
+  border: 2px solid rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.05);
+  position: relative;
+}
+.book-item.bonus::before {
+  content: 'BONUS';
+  position: absolute;
+  top: 0.75rem; right: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  background: rgba(201,168,76,0.1);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(201,168,76,0.25);
+}
+
+.book-item-icon {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.book-item-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+}
+
+.book-item-desc {
+  font-size: 0.9rem; line-height: 1.6;
+  color: var(--gray-light);
+}
+
+.book-item .bonus-link { color: var(--gold); }
+
+.book-cta-area { text-align: center; }
+
+.book-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem; font-weight: 900;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+}
+
+.book-buy-btn {
+  display: inline-block;
+  background: var(--gold); color: var(--black);
+  border: 2px solid var(--gold);
+  padding: 1rem 2.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: all 0.2s; margin-bottom: 1.5rem;
+}
+.book-buy-btn:hover { background: var(--gold-dim); border-color: var(--gold-dim); }
+
+.book-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+/* ── FOOTER ── */
+footer { padding: 3rem 2rem; text-align: center; border-top: 2px solid var(--border); }
+footer p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.1em;
+  color: var(--gray-light); line-height: 1.8;
+  margin-bottom: 0.6rem;
+}
+footer p:first-child {
+  font-size: 0.7rem;
+  color: var(--gray);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+footer p:last-child { margin-bottom: 0; color: var(--gray); font-weight: 700; }
+footer a { color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+footer a:hover { color: var(--black); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .spectrum-row { grid-template-columns: 1fr; }
+  .spectrum-row .level { border-right: none; border-bottom: 1px solid var(--black); padding: 0.8rem 1.2rem; }
+  .spectrum-row .verdict { border-left: none; border-top: 1px solid var(--black); justify-content: flex-start; padding: 0.8rem 1.2rem; }
+  .pledge-input-row, .horror-submit-row { flex-direction: column; }
+  .book-grid { grid-template-columns: 1fr; }
+  .book-item { border-right: none !important; }
+  .book-item:last-child { border-bottom: none; }
+  .section-label { font-size: 0.7rem; }
+  .quiz-counter { font-size: 0.75rem; }
+  .horror-attr { font-size: 0.7rem; }
+  .book-note { font-size: 0.7rem; }
+  footer p { font-size: 0.7rem; }
+}

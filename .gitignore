@@ -1,0 +1,5 @@
+.vercel
+.gstack/
+.DS_Store
+*.ttf
+generate-og.py
