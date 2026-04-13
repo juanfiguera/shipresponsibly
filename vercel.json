@@ -4,7 +4,7 @@
   "redirects": [
     {
       "source": "/playbook",
-      "destination": "https://juan.gumroad.com/l/ship-responsibly",
+      "destination": "https://juan.gumroad.com/l/ship-responsibly?utm_source=shipresponsibly&utm_medium=referral&utm_campaign=playbook_cta",
       "permanent": false
     }
   ],

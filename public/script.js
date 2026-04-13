@@ -127,3 +127,19 @@ document.getElementById('horrorBtn').addEventListener('click', () => {
   document.getElementById('horrorCard').style.display = 'none';
   document.getElementById('horrorSuccess').classList.add('visible');
 });
+
+// ── PLAYBOOK CLICK TRACKING ──
+// /playbook is a server redirect to Gumroad, so no page-view event fires there.
+// Track clicks on any CTA pointing at /playbook with gtag + transport:beacon
+// so the event is sent even though the browser navigates immediately.
+document.querySelectorAll('a[href="/playbook"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'playbook_click', {
+        event_category: 'outbound',
+        event_label: link.textContent.trim(),
+        transport_type: 'beacon',
+      });
+    }
+  });
+});
