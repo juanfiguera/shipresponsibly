@@ -325,23 +325,6 @@ const SR_ASSESSMENT = (function () {
   el.appendChild(sub);
 })();
 
-// ── Sample chapter form toggle ──────────────────────────────────
-(function sample() {
-  const btn = document.getElementById('sample-btn');
-  const form = document.getElementById('sample-form');
-  const send = document.getElementById('sample-send');
-  const email = document.getElementById('sample-email');
-  if (!btn || !form) return;
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    form.style.display = form.style.display === 'block' ? 'none' : 'block';
-    if (form.style.display === 'block' && email) email.focus();
-  });
-  if (send) send.onclick = () => {
-    if (!email || !email.value.trim() || !email.value.includes('@')) { if (email) email.focus(); return; }
-    form.innerHTML = '<div style="padding: 8px 4px; font-family: \'JetBrains Mono\', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);">\u2713 Sent. Check your inbox in a minute.</div>';
-  };
-})();
 
 // ── Assessment ───────────────────────────────────────────────────
 (function assess() {
@@ -512,7 +495,7 @@ const SR_ASSESSMENT = (function () {
 // so the event is sent even though the browser navigates immediately.
 function attachPlaybookTracking(scope) {
   const root = scope || document;
-  root.querySelectorAll('a[href="/playbook"]').forEach((link) => {
+  root.querySelectorAll('a[href="/playbook"], a[href="/sample"]').forEach((link) => {
     if (link.dataset.trackAttached) return;
     link.dataset.trackAttached = '1';
     link.addEventListener('click', () => {

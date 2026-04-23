@@ -6,6 +6,11 @@
       "source": "/playbook",
       "destination": "https://juan.gumroad.com/l/ship-responsibly?utm_source=shipresponsibly&utm_medium=referral&utm_campaign=playbook_cta",
       "permanent": false
+    },
+    {
+      "source": "/sample",
+      "destination": "https://juan.gumroad.com/l/ship-responsibly-sample?utm_source=shipresponsibly&utm_medium=referral&utm_campaign=sample_chapter",
+      "permanent": false
     }
   ],
   "headers": [
