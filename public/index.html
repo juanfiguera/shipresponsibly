@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ship Responsibly — A PSA for the Vibecoding Era</title>
-<meta name="description" content="You vibecoded an app in 20 minutes. Someone just called it 'critical infrastructure.' Take the quiz. Read the playbook. Ship better." />
+<title>Ship Responsibly — An advisory for the vibecoding era</title>
+<meta name="description" content="A cheerful advisory for anyone shipping code they didn't quite read. Take the self-certification. Get your classification. Read the playbook." />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://shipresponsibly.com" />
-<meta property="og:title" content="Ship Responsibly" />
-<meta property="og:description" content="You vibecoded an app in 20 minutes. Someone just called it 'critical infrastructure.'" />
+<meta property="og:title" content="Ship Responsibly — An advisory for the vibecoding era" />
+<meta property="og:description" content="A cheerful advisory from the Department of Shipping for anyone shipping code they didn't quite read." />
 <meta property="og:image" content="https://shipresponsibly.com/assets/og-image.png" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Ship Responsibly" />
-<meta name="twitter:description" content="You vibecoded an app in 20 minutes. Someone just called it 'critical infrastructure.'" />
+<meta name="twitter:title" content="Ship Responsibly — An advisory for the vibecoding era" />
+<meta name="twitter:description" content="A cheerful advisory from the Department of Shipping for anyone shipping code they didn't quite read." />
 <meta name="twitter:image" content="https://shipresponsibly.com/assets/og-image.png" />
 
 <!-- Favicon -->
@@ -25,7 +25,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="/styles.css" />
 
@@ -38,171 +38,244 @@
   gtag('config', 'G-NH90QYGHK9');
 </script>
 </head>
-<body>
+<body data-screen-label="Dept of Shipping">
 
-<!-- HERO -->
+<!-- Masthead -->
+<div class="mast">
+  <div class="mast-inner">
+    <div class="left">
+      <span><span class="dot"></span>DS·2026·04·20</span>
+      <span>PUBLIC ADVISORY</span>
+    </div>
+    <div class="center">DEPARTMENT OF SHIPPING · OFFICE OF THE DEVELOPER GENERAL</div>
+    <div class="right">
+      <span>ISSUE №07</span>
+      <span>ROUTING: PUBLIC</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
 <section class="hero">
-  <div class="badge">A public service announcement</div>
-  <h1>Ship<span class="line2">Responsibly.</span></h1>
-  <p class="subtitle">You vibecoded an app in 20 minutes.<br>Someone just called it "critical infrastructure."</p>
-  <div class="scroll-cue">Continue</div>
-</section>
-
-<!-- WARNING LABEL -->
-<section class="warning-section">
-  <div class="warning-box">
-    <div class="warning-title">Surgeon General's Warning</div>
-    <p>Vibecoding has been found to cause <em>unreasonable confidence</em> in first-time developers, leading to the deployment of untested software to unsuspecting humans.</p>
-    <p>Side effects may include: mass credential exposure, invoices sent to the wrong continent, and the mass psychological event known as <em>"it works on my machine."</em></p>
+  <div class="hero-grid">
+    <div class="seal-wrap">
+      <svg class="seal" viewBox="0 0 180 180" aria-hidden="true">
+        <defs>
+          <path id="cTop" d="M 90 90 m -70,0 a 70,70 0 1,1 140,0" fill="none"></path>
+          <path id="cBot" d="M 90 90 m -70,0 a 70,70 0 1,0 140,0" fill="none"></path>
+        </defs>
+        <circle cx="90" cy="90" r="86" fill="none" stroke="#111" stroke-width="2"></circle>
+        <circle cx="90" cy="90" r="82" fill="none" stroke="#111" stroke-width="0.6"></circle>
+        <circle cx="90" cy="90" r="56" fill="none" stroke="#111" stroke-width="1"></circle>
+        <circle cx="90" cy="90" r="44" fill="#111"></circle>
+        <g transform="translate(90 92)" stroke="#f4f1ea" stroke-width="2" fill="none" stroke-linecap="square">
+          <rect x="-24" y="-13" width="48" height="26" rx="1"></rect>
+          <line x1="-15" y1="-13" x2="-15" y2="13"></line>
+          <line x1="-6" y1="-13" x2="-6" y2="13"></line>
+          <line x1="3" y1="-13" x2="3" y2="13"></line>
+          <line x1="12" y1="-13" x2="12" y2="13"></line>
+        </g>
+        <text font-family="Archivo, sans-serif" font-weight="700" font-size="8.5" letter-spacing="1.8" fill="#111">
+          <textPath href="#cTop" startOffset="50%" text-anchor="middle">DEPARTMENT · OF · SHIPPING</textPath>
+        </text>
+        <text font-family="Archivo, sans-serif" font-weight="500" font-size="7.5" letter-spacing="2" fill="#111">
+          <textPath href="#cBot" startOffset="50%" text-anchor="middle">· EST · MMXXVI · QA · OFFICIAL SEAL ·</textPath>
+        </text>
+        <g fill="#111">
+          <polygon points="28,84 29.2,88 33.5,88 30,90.5 31.3,94.5 28,92 24.7,94.5 26,90.5 22.5,88 26.8,88"></polygon>
+          <polygon points="152,84 153.2,88 157.5,88 154,90.5 155.3,94.5 152,92 148.7,94.5 150,90.5 146.5,88 150.8,88"></polygon>
+        </g>
+      </svg>
+      <div class="stamp-wrap" title="hover me">
+        <div class="stamp">
+          APPROVED FOR<br>PUBLIC<br>DISSEMINATION<br><br>§ 404.1(b)<br>VIBECODE
+        </div>
+        <div class="stamp alt">
+          DEVELOPER<br>GENERAL HAS<br>READ IT<br><br>§ 404.2(a)<br>SO SHOULD YOU
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="agency">Form DS·001 · Public Health Advisory · 20 April 2026</div>
+      <h1 id="hl">You Shipped<br>It<span class="amp"> &amp; </span>Now<br>It's Alive.</h1>
+      <p class="lede">A <em>cheerful advisory</em> for anyone shipping code they didn't quite read. No rules. Just vibes — the responsible kind.</p>
+      <div class="meta-strip">
+        <span>14 min read · or 6 if you skim</span>
+        <span>Agency: Dept. of Shipping</span>
+        <span>Clearance: UNCLASSIFIED</span>
+      </div>
+    </div>
+    <div class="right-col">
+      <div class="form-num">▸ File copy · DS-2026-07</div>
+      <div class="notch">
+        <strong>Notice to developer.</strong><br>
+        If you built it in an afternoon and don't remember what it does, this document is directed at you.
+      </div>
+      <a href="#assess" class="cta primary">Take the 2-min assessment →</a>
+      <a href="#playbook" class="cta ghost">or skip to the playbook — $19 →</a>
+    </div>
   </div>
 </section>
 
-<!-- SPECTRUM -->
-<section class="spectrum-section">
-  <div class="section-label">Know Your Risk Level</div>
-  <h2 class="section-heading">The Responsibility Spectrum</h2>
-  <div class="spectrum">
-    <div class="spectrum-row"><div class="level">Level 1</div><div class="desc">A script that renames your vacation photos</div><div class="verdict safe">Ship it</div></div>
-    <div class="spectrum-row"><div class="level">Level 2</div><div class="desc">A Chrome extension your team "kind of" relies on</div><div class="verdict caution">Hm, maybe review it</div></div>
-    <div class="spectrum-row"><div class="level">Level 3</div><div class="desc">An internal tool that touches customer data</div><div class="verdict caution">Stop vibing, start reading</div></div>
-    <div class="spectrum-row"><div class="level">Level 4</div><div class="desc">A payments flow you described as "pretty solid"</div><div class="verdict danger">Dear god, no</div></div>
-    <div class="spectrum-row"><div class="level">Level 5</div><div class="desc">Medical software you built over a long weekend</div><div class="verdict danger">Call a lawyer</div></div>
-  </div>
-</section>
+<!-- Scrolling warning band -->
+<div class="warn-band" aria-hidden="true">
+  <div class="track" id="track"></div>
+</div>
 
-<!-- QUIZ -->
-<section class="quiz-section">
-  <div class="quiz-inner">
-    <div class="section-label">Self Assessment</div>
-    <h2 class="section-heading">Are You Shipping Under the Influence?</h2>
-    <p class="quiz-subtitle">Five quick questions. No judgment. Okay, some judgment.</p>
-
-    <div class="quiz-card" id="quizCard">
-      <div class="quiz-question" id="quizQ"></div>
-      <div class="quiz-options" id="quizOpts"></div>
-      <div class="quiz-nav">
-        <div class="quiz-counter" id="quizCounter"></div>
-        <button class="quiz-next" id="quizNext" disabled>Next →</button>
-      </div>
+<!-- Surgeon General's Warning -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">§ 01 · Notice<br>Form DS·002</div>
+      <h2>The Developer General's Warning</h2>
     </div>
-
-    <div class="result-card" id="resultCard">
-      <div class="result-score" id="resultScore"></div>
-      <div class="result-label" id="resultLabel"></div>
-      <div class="result-msg" id="resultMsg"></div>
-      <button class="retake-btn" id="retakeBtn">Take it again</button>
-      <a class="playbook-cta" href="/playbook">Get the playbook — $19</a>
+    <div class="warning-grid">
+      <div class="mono warning-aside">
+        Read aloud.<br>Preferably<br>to yourself.<br>Before<br>merging.
+      </div>
+      <p class="warning-lead">Vibecoding has been found to cause <em>unreasonable confidence</em> in first-time and experienced developers alike, leading to the deployment of unreviewed software to unsuspecting humans.</p>
+      <p class="warning-body">Side effects may include: mass credential exposure, invoices sent to the wrong continent, payment flows that double-charge, AI agents that declare inbox zero by deleting everything, and the mass psychological event known as <em>"it works on my machine."</em> Consult your staff engineer if symptoms persist beyond the weekend.</p>
     </div>
   </div>
 </section>
 
-<!-- HORROR STORIES -->
-<section class="horror-section">
-  <div class="horror-inner">
-    <div class="section-label">The Confessional</div>
-    <h2 class="section-heading">Vibecoding Horror Stories</h2>
-    <p class="horror-subtitle">Real stories of vibecoded software gone wrong. Your shame is someone else's lesson.</p>
-
-    <div class="horror-examples">
-      <div class="horror-card cat-payments">
-        <div class="horror-card-tag">Payments</div>
-        <div class="horror-quote">"I vibecoded a Stripe integration for a client. Three weeks later I found out it was double-charging every transaction. The refund process took longer than writing the app."</div>
-        <div class="horror-attr">Anonymous, freelance developer</div>
+<!-- Spectrum -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">§ 02 · Classification<br>Form DS·003</div>
+      <h2>The Responsibility Spectrum</h2>
+    </div>
+    <div class="spectrum">
+      <div class="side">
+        <p>Every shipped artifact carries a blast radius.</p>
+        <p>The spectrum below is non-negotiable. Find where your project sits. Act accordingly.</p>
+        <p class="side-warn">Do not lie to yourself at level 4.</p>
       </div>
-      <div class="horror-card cat-security">
-        <div class="horror-card-tag">Security</div>
-        <div class="horror-quote">"Built an internal HR tool over a weekend. It worked great until someone pointed out that every employee's salary was visible in the browser console."</div>
-        <div class="horror-attr">Anonymous, ops lead at a Series B startup</div>
+      <div class="levels">
+        <div class="lvl" data-lv="1"><div><div class="code">Lv. 01 · LOW</div><div class="num">01</div></div><div class="ex">A script that renames your vacation photos.</div><div class="verdict">Ship it</div></div>
+        <div class="lvl" data-lv="2"><div><div class="code">Lv. 02 · CAUTION</div><div class="num">02</div></div><div class="ex">A Chrome extension your team "kind of" relies on.</div><div class="verdict">Skim before merge</div></div>
+        <div class="lvl" data-lv="3"><div><div class="code">Lv. 03 · ELEVATED</div><div class="num">03</div></div><div class="ex">An internal tool that touches customer data.</div><div class="verdict">Stop vibing</div></div>
+        <div class="lvl" data-lv="4"><div><div class="code">Lv. 04 · HIGH</div><div class="num">04</div></div><div class="ex">A payments flow you described as "pretty solid."</div><div class="verdict">Dear god, no</div></div>
+        <div class="lvl" data-lv="5"><div><div class="code">Lv. 05 · CRITICAL</div><div class="num">05</div></div><div class="ex">Medical software you built over a long weekend.</div><div class="verdict">Call a lawyer</div></div>
       </div>
-      <div class="horror-card cat-data">
-        <div class="horror-card-tag">Data Loss</div>
-        <div class="horror-quote">"My AI agent had full access to my email. I asked it to 'clean up my inbox.' It archived 3 months of client correspondence. Some of those threads had active deals."</div>
-        <div class="horror-attr">Anonymous, founder</div>
+      <div class="where-am-i">
+        <span>Not sure where you land?</span>
+        <a href="#assess">Take the 2-min assessment →</a>
       </div>
     </div>
-
-    <div class="horror-submit-card" id="horrorCard">
-      <div class="horror-submit-title">Got a story?</div>
-      <textarea class="horror-textarea" id="horrorText" placeholder="What happened? Be as specific as you want. We'll anonymize everything." rows="4"></textarea>
-      <div class="horror-submit-row">
-        <input type="text" class="horror-role-input" id="horrorRole" placeholder="Your role (e.g. 'PM at a fintech startup')" />
-        <button class="horror-submit-btn" id="horrorBtn">Submit anonymously</button>
-      </div>
-    </div>
-    <div class="horror-success" id="horrorSuccess">Submitted. Your pain will save someone else's weekend.</div>
   </div>
 </section>
 
-<!-- PLEDGE -->
-<section class="pledge-section">
+<!-- Assessment -->
+<section id="assess">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">§ 03 · Self-Cert<br>Form DS·005</div>
+      <h2>Are You Shipping<br>Under the Influence?</h2>
+    </div>
+    <div id="assess-app"></div>
+  </div>
+</section>
+
+<!-- Horror Stories -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">§ 04 · Casefile<br>Form DS·011</div>
+      <h2>Field Reports<br><span class="sub-head">filed by anonymous shippers</span></h2>
+    </div>
+    <div class="stories-grid" id="stories"></div>
+  </div>
+</section>
+
+<!-- Pledge -->
+<section class="pledge">
   <div class="pledge-inner">
-    <div class="section-label">Take the Pledge</div>
-    <h2 class="section-heading" style="margin-bottom: 2rem;">The Responsible Shipper's Oath</h2>
-    <p class="pledge-text">
-      I solemnly swear to <strong>read my own code</strong> before deploying it, to never describe a payments integration as <strong>"vibes-based,"</strong> and to remember that <strong>users are real people</strong> who did not consent to being beta testers.
-    </p>
-    <div class="pledge-input-row">
-      <input type="text" class="pledge-input" id="pledgeInput" placeholder="Your name (or GitHub handle)" />
-      <button class="pledge-submit" id="pledgeBtn">I pledge</button>
+    <div class="tag">§ 05 · The Responsible Shipper's Oath</div>
+    <p>I swear to <em>read my own code</em> before I deploy it. Never to call a payments integration <em>"vibes-based."</em> And to remember users are real people who did not consent to being <em>beta testers.</em></p>
+    <div class="sign-row">
+      <input type="text" id="pledge-name" placeholder="your signature" maxlength="40">
+      <button class="cta" id="pledge-btn">I pledge →</button>
     </div>
-    <div class="pledge-wall" id="pledgeWall"></div>
-  </div>
-</section>
-
-<!-- BOOK CTA -->
-<section class="book-section">
-  <div class="book-inner">
-    <div class="section-label">The Playbook</div>
-    <h2 class="section-heading">You Know Your Score.<br>Now Fix It.</h2>
-    <p class="book-subtitle">Not another ebook. A complete toolkit for the vibecoding era.</p>
-
-    <div class="book-grid">
-      <div class="book-item">
-        <div class="book-item-icon">01</div>
-        <div class="book-item-title">The Responsibility Scorecard</div>
-        <div class="book-item-desc">A downloadable template to assess any project before you deploy. Who uses this? What data does it touch? What breaks if it goes down? Fill it out in 10 minutes. Prevent a disaster in zero.</div>
+    <div class="count" id="pledge-status">Pledge yours — take the oath below.<span class="toast" id="pledge-toast">Signed ✓</span></div>
+    <div class="signed-card" id="signed-card">
+      <canvas id="signed-canvas" width="1200" height="630"></canvas>
+      <div class="signed-actions">
+        <button class="cta" id="signed-dl">Download (PNG)</button>
+        <a class="cta light" id="signed-share" href="#" target="_blank" rel="noopener">Share on X →</a>
       </div>
-      <div class="book-item">
-        <div class="book-item-icon">02</div>
-        <div class="book-item-title">The Graduation Checklist</div>
-        <div class="book-item-desc">The exact steps to take your vibecoded prototype from "works on my machine" to "safe for other humans." Check for exposed API keys, add bare-minimum error handling, run the one security scan that actually matters. Copy-paste ready.</div>
-      </div>
-      <div class="book-item">
-        <div class="book-item-icon">03</div>
-        <div class="book-item-title">30 Responsible Prompts</div>
-        <div class="book-item-desc">Battle-tested prompt templates that bake in security from the start. Stop prompting "build me a login page" and start prompting for bcrypt hashing, rate limiting, and CSRF protection. Paste into Claude, Cursor, or Codex and immediately build better software.</div>
-      </div>
-      <div class="book-item">
-        <div class="book-item-icon">04</div>
-        <div class="book-item-title">The Friday 4:47 PM Decision Tree</div>
-        <div class="book-item-desc">A one-page visual flowchart. "Should I ship this?" Five questions, one clear answer. Print it. Tape it next to your monitor. Let it save your weekend.</div>
-      </div>
-      <div class="book-item">
-        <div class="book-item-icon">05</div>
-        <div class="book-item-title">Real Horror Stories + Postmortems</div>
-        <div class="book-item-desc">Actual cases of vibecoded software that hurt real people. Each one includes what was built, what went wrong, the exact decision point where one choice would have prevented it, and the Ship Responsibly principle it violates.</div>
-      </div>
-      <div class="book-item bonus">
-        <div class="book-item-icon">+</div>
-        <div class="book-item-title">Agent Authorization</div>
-        <div class="book-item-desc">Building with AI agents? This bonus chapter covers how to scope permissions, delegate safely, and revoke access when things go sideways. Built on principles from the <a href="https://github.com/agenticpoa/apoa" target="_blank" rel="noopener" class="bonus-link">APOA protocol</a>.</div>
-      </div>
-    </div>
-
-    <div class="book-cta-area">
-      <div class="book-price">$19</div>
-      <a class="book-buy-btn" href="/playbook">Get the playbook →</a>
-      <p class="book-note">PDF + ePub + templates. Read it in an afternoon. Ship better by Monday.</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- Playbook -->
+<section class="playbook" id="playbook">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">§ 06 · Field Manual<br>Form DS·019</div>
+      <h2>The Playbook</h2>
+    </div>
+    <div class="pb-grid">
+      <div class="left">
+        <div class="price-block">$19<span class="price-currency">USD</span></div>
+        <div class="price-sub">PDF · ePub · Templates · ~90 pages</div>
+        <h3>You know your score.<br>Now fix it.</h3>
+        <p>Not another ebook. A field manual for the vibecoding era — outcomes you can ship tomorrow, not theory you'll forget by Friday.</p>
+        <div class="for-who" style="margin-top: 20px; padding: 14px 16px; border: 1.5px solid var(--ink); background: var(--paper); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.6;">
+          <strong style="color:var(--accent);">Built for:</strong> solo devs · AI-first builders · indie hackers · anyone shipping code they didn't read line-by-line.
+        </div>
+        <div style="margin-top: 14px; padding: 14px 16px; border: 1.5px dashed var(--ink); font-size: 15px; line-height: 1.5;">
+          <strong>90-day money-back guarantee.</strong> If the Playbook doesn't save you one weekend, email us and we'll refund it. No forms, no questions.
+        </div>
+        <div style="margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap;">
+          <a class="cta primary" href="/playbook" id="buy">Get the playbook → $19</a>
+          <a class="cta outline" href="#sample" id="sample-btn">Free sample chapter →</a>
+        </div>
+        <div id="sample-form" style="display:none; margin-top: 16px; padding: 16px; border: 1.5px solid var(--ink); background: var(--paper);">
+          <label style="display:block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">Email address</label>
+          <div style="display:flex; gap:8px;">
+            <input type="email" id="sample-email" placeholder="you@domain.com" style="flex:1; padding: 10px 12px; border: 1.5px solid var(--ink); background: var(--paper-2); font: inherit; font-size: 14px;" />
+            <button class="cta" id="sample-send">Send it</button>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 8px;">One email. No list. No pitch. Just the chapter.</div>
+        </div>
+      </div>
+      <div class="right">
+        <ul>
+          <li><span class="n">01</span><div class="t">Never commit a secret again<small>The 10-minute audit that catches keys, tokens, and .env files before git does.</small></div></li>
+          <li><span class="n">02</span><div class="t">Stop shipping Friday at 5pm<small>The decision tree that answers "should I deploy this?" in 60 seconds. Print it. Tape it to your monitor.</small></div></li>
+          <li><span class="n">03</span><div class="t">Audit any project in 10 minutes<small>The graduation checklist — from "works on my machine" to "safe for other humans." Copy-paste ready.</small></div></li>
+          <li><span class="n">04</span><div class="t">Make the AI build it safely<small>30 battle-tested prompts that bake bcrypt, rate limits, and CSRF into the first draft. Works in Claude, Cursor, Codex.</small></div></li>
+          <li><span class="n">05</span><div class="t">Keep your agents on a leash<small>How to scope permissions, delegate safely, and revoke access before things go sideways.</small></div></li>
+          <li><span class="n">+</span><div class="t">Learn from other people's disasters<small>12 real postmortems. What broke, the decision point, the principle violated, the fix.</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <p>Ship Responsibly &copy; 2026</p>
-  <p>Vibecoded with love and good vibes in California by <a href="https://github.com/juanfiguera" target="_blank" rel="noopener">@juanfiguera</a></p>
-  <p>Inspired by <a href="https://lexfridman.com/peter-steinberger-transcript/" target="_blank" rel="noopener">Peter Steinberger</a>'s distinction between vibe coding and agentic engineering on <a href="https://lexfridman.com/peter-steinberger-transcript/" target="_blank" rel="noopener">Lex Fridman's Podcast</a>, and <a href="https://simonwillison.net" target="_blank" rel="noopener">Simon Willison</a>'s framework for responsible AI-assisted development on <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA" target="_blank" rel="noopener">Lenny's Podcast</a>.</p>
-  <p>Peter, Simon, Lex and Lenny have not endorsed and are not affiliated with this project.</p>
+  <div class="f-inner">
+    <div>
+      <div class="lead">Ship<br>responsibly.</div>
+      <div class="small footer-tag">A non-binding advisory for the vibecoding era.</div>
+    </div>
+    <div class="small">
+      <strong>OFFICES</strong><br>
+      §01 Advisory<br>§02 Classification<br>§03 Self-Cert<br>§04 Casefile<br>§05 Oath<br>§06 Field Manual
+    </div>
+    <div class="small">
+      <strong>ATTRIBUTION</strong><br><br>
+      Inspired by Peter Steinberger's distinction between vibe coding and agentic engineering on <a href="https://lexfridman.com/peter-steinberger-transcript/" target="_blank" rel="noopener">Lex Fridman's Podcast</a>, and Simon Willison's framework for responsible AI-assisted development on <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA" target="_blank" rel="noopener">Lenny's Podcast</a>.<br><br>
+      Peter, Simon, Lex, and Lenny have not endorsed and are not affiliated with this project.<br><br>
+      Vibecoded with love and good vibes in California by <a href="https://github.com/juanfiguera" target="_blank" rel="noopener">@juanfiguera</a>.
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>Ship Responsibly © 2026 · Dept. of Shipping</span>
+    <span>DS·2026·04·20 · v1.0</span>
+  </div>
 </footer>
 
 <script src="/script.js" defer></script>
