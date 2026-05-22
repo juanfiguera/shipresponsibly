@@ -1,31 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ship Responsibly — An advisory for the vibecoding era</title>
-<meta name="description" content="A cheerful advisory for anyone shipping code they didn't quite read. Take the self-certification. Get your classification. Read the playbook." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ship Responsibly — A pre-flight manual for the vibecoding era</title>
+<meta name="description" content="A pre-flight manual for people shipping AI-assisted software. For first-time builders and senior engineers alike. $19." />
+<link rel="canonical" href="https://shipresponsibly.com/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://shipresponsibly.com" />
-<meta property="og:title" content="Ship Responsibly — An advisory for the vibecoding era" />
-<meta property="og:description" content="A cheerful advisory from the Department of Shipping for anyone shipping code they didn't quite read." />
+<meta property="og:url" content="https://shipresponsibly.com/" />
+<meta property="og:title" content="Ship Responsibly — A pre-flight manual for the vibecoding era" />
+<meta property="og:description" content="A pre-flight manual for people shipping AI-assisted software. For first-time builders and senior engineers alike. $19." />
 <meta property="og:image" content="https://shipresponsibly.com/assets/og-image.png" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Ship Responsibly — An advisory for the vibecoding era" />
-<meta name="twitter:description" content="A cheerful advisory from the Department of Shipping for anyone shipping code they didn't quite read." />
+<meta name="twitter:title" content="Ship Responsibly — A pre-flight manual for the vibecoding era" />
+<meta name="twitter:description" content="A pre-flight manual for people shipping AI-assisted software. For first-time builders and senior engineers alike. $19." />
 <meta name="twitter:image" content="https://shipresponsibly.com/assets/og-image.png" />
 
-<!-- Favicon -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>" />
+<!-- Favicon: white paper plane in a dark square, matching the nav glyph. -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230d0e10'/><text x='50' y='62' font-size='52' font-family='Apple Color Emoji,Segoe UI Emoji,sans-serif' text-anchor='middle' fill='white'>%E2%9C%88</text></svg>" />
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="/styles.css" />
 
@@ -38,238 +39,321 @@
   gtag('config', 'G-NH90QYGHK9');
 </script>
 </head>
-<body data-screen-label="Dept of Shipping">
+<body>
 
-<!-- Masthead -->
-<div class="mast">
-  <div class="mast-inner">
-    <div class="left">
-      <span><span class="dot"></span>DS·2026·04·20</span>
-      <span>PUBLIC ADVISORY</span>
-    </div>
-    <div class="center">DEPARTMENT OF SHIPPING · OFFICE OF THE DEVELOPER GENERAL</div>
-    <div class="right">
-      <span>ISSUE №07</span>
-      <span>ROUTING: PUBLIC</span>
-    </div>
+<noscript>
+  <!-- Search engine / no-JS fallback. The page is mostly static; this block
+       restates the proposition so the page is legible without script. -->
+  <div style="background:#0d0e10;color:#fff;padding:14px 22px;font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;">
+    <strong>Ship Responsibly</strong> is a $19 pre-flight manual for the vibecoding era —
+    a five-level severity model, a 47-item Graduation Checklist, thirty responsible
+    prompt templates, and seven postmortems.
+    <a href="/playbook" style="color:#ff4d97;text-decoration:underline;">Get the manual →</a>
   </div>
-</div>
+</noscript>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-grid">
-    <div class="seal-wrap">
-      <svg class="seal" viewBox="0 0 180 180" aria-hidden="true">
-        <defs>
-          <path id="cTop" d="M 90 90 m -70,0 a 70,70 0 1,1 140,0" fill="none"></path>
-          <path id="cBot" d="M 90 90 m -70,0 a 70,70 0 1,0 140,0" fill="none"></path>
-        </defs>
-        <circle cx="90" cy="90" r="86" fill="none" stroke="#111" stroke-width="2"></circle>
-        <circle cx="90" cy="90" r="82" fill="none" stroke="#111" stroke-width="0.6"></circle>
-        <circle cx="90" cy="90" r="56" fill="none" stroke="#111" stroke-width="1"></circle>
-        <circle cx="90" cy="90" r="44" fill="#111"></circle>
-        <g transform="translate(90 92)" stroke="#f4f1ea" stroke-width="2" fill="none" stroke-linecap="square">
-          <rect x="-24" y="-13" width="48" height="26" rx="1"></rect>
-          <line x1="-15" y1="-13" x2="-15" y2="13"></line>
-          <line x1="-6" y1="-13" x2="-6" y2="13"></line>
-          <line x1="3" y1="-13" x2="3" y2="13"></line>
-          <line x1="12" y1="-13" x2="12" y2="13"></line>
-        </g>
-        <text font-family="Archivo, sans-serif" font-weight="700" font-size="8.5" letter-spacing="1.8" fill="#111">
-          <textPath href="#cTop" startOffset="50%" text-anchor="middle">DEPARTMENT · OF · SHIPPING</textPath>
-        </text>
-        <text font-family="Archivo, sans-serif" font-weight="500" font-size="7.5" letter-spacing="2" fill="#111">
-          <textPath href="#cBot" startOffset="50%" text-anchor="middle">· EST · MMXXVI · QA · OFFICIAL SEAL ·</textPath>
-        </text>
-        <g fill="#111">
-          <polygon points="28,84 29.2,88 33.5,88 30,90.5 31.3,94.5 28,92 24.7,94.5 26,90.5 22.5,88 26.8,88"></polygon>
-          <polygon points="152,84 153.2,88 157.5,88 154,90.5 155.3,94.5 152,92 148.7,94.5 150,90.5 146.5,88 150.8,88"></polygon>
-        </g>
-      </svg>
-      <div class="stamp-wrap" title="hover me">
-        <div class="stamp">
-          APPROVED FOR<br>PUBLIC<br>DISSEMINATION<br><br>§ 404.1(b)<br>VIBECODE
+<header class="nav">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Ship Responsibly, home">
+      <span class="glyph" aria-hidden="true">✈</span>
+      <span>Ship Responsibly</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#built">For builders</a>
+      <a href="#how">How it works</a>
+      <a href="#buy">Manual</a>
+    </nav>
+    <a href="/playbook" class="nav-cta">Get the manual <span class="arr" aria-hidden="true">↗</span></a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="pill"><span class="ic" aria-hidden="true">✈︎</span> Pre-Flight Manual · v.0.4</span>
+        <span class="scrolltag" aria-hidden="true">Scroll down <span class="arr">↓</span></span>
+      </div>
+
+      <h1>Anyone can ship now.<br/>Few do it <em>responsibly</em>.</h1>
+
+      <!-- Decorative SHIP wordmark. role=img + aria-label so screen readers
+           announce "Ship" once, not S–H–I–P letter by letter. -->
+      <div class="wordmark" role="img" aria-label="Ship">
+        <span class="letter l-s" aria-hidden="true"><span class="block"></span><span class="char">S</span></span>
+        <span class="letter l-h" aria-hidden="true"><span class="block"></span><span class="char">H</span></span>
+        <span class="letter l-i" aria-hidden="true"><span class="block"></span><span class="char">I</span></span>
+        <span class="letter l-p" aria-hidden="true"><span class="block"></span><span class="char">P</span></span>
+
+        <svg class="mascot" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 92 L220 22 L142 168 L108 110 Z" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round" fill="white"/>
+          <path d="M220 22 L108 110" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M14 92 L108 110 L142 168 Z" fill="#d6c4f0" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M30 134 Q 18 142 8 158" stroke="#0d0e10" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M58 148 Q 48 156 40 170" stroke="#0d0e10" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="built" id="built">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="pill on-lavender"><span class="ic" aria-hidden="true">✦</span> Who's flying today</span>
+          <h2 style="margin-top: 22px;">Built for builders,<br/>grounded in <em>discipline.</em></h2>
         </div>
-        <div class="stamp alt">
-          DEVELOPER<br>GENERAL HAS<br>READ IT<br><br>§ 404.2(a)<br>SO SHOULD YOU
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="agency">Form DS·001 · Public Health Advisory · 20 April 2026</div>
-      <h1 id="hl">You Shipped<br>It<span class="amp"> &amp; </span>Now<br>It's Alive.</h1>
-      <p class="lede">A <em>cheerful advisory</em> for anyone shipping code they didn't quite read. No rules. Just vibes — the responsible kind.</p>
-      <div class="meta-strip">
-        <span>14 min read · or 6 if you skim</span>
-        <span>Agency: Dept. of Shipping</span>
-        <span>Clearance: UNCLASSIFIED</span>
-      </div>
-    </div>
-    <div class="right-col">
-      <div class="form-num">▸ File copy · DS-2026-07</div>
-      <div class="notch">
-        <strong>Notice to developer.</strong><br>
-        If you built it in an afternoon and don't remember what it does, this document is directed at you.
-      </div>
-      <a href="#assess" class="cta primary">Take the 2-min assessment →</a>
-      <a href="#playbook" class="cta ghost">or skip to the playbook — $19 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- Scrolling warning band -->
-<div class="warn-band" aria-hidden="true">
-  <div class="track" id="track"></div>
-</div>
-
-<!-- Surgeon General's Warning -->
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">§ 01 · Notice<br>Form DS·002</div>
-      <h2>The Developer General's Warning</h2>
-    </div>
-    <div class="warning-grid">
-      <div class="mono warning-aside">
-        Read aloud.<br>Preferably<br>to yourself.<br>Before<br>merging.
-      </div>
-      <p class="warning-lead">Vibecoding has been found to cause <em>unreasonable confidence</em> in first-time and experienced developers alike, leading to the deployment of unreviewed software to unsuspecting humans.</p>
-      <p class="warning-body">Side effects may include: mass credential exposure, invoices sent to the wrong continent, payment flows that double-charge, AI agents that declare inbox zero by deleting everything, and the mass psychological event known as <em>"it works on my machine."</em> Consult your staff engineer if symptoms persist beyond the weekend.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Spectrum -->
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">§ 02 · Classification<br>Form DS·003</div>
-      <h2>The Responsibility Spectrum</h2>
-    </div>
-    <div class="spectrum">
-      <div class="side">
-        <p>Every shipped artifact carries a blast radius.</p>
-        <p>The spectrum below is non-negotiable. Find where your project sits. Act accordingly.</p>
-        <p class="side-warn">Do not lie to yourself at level 4.</p>
-      </div>
-      <div class="levels">
-        <div class="lvl" data-lv="1"><div><div class="code">Lv. 01 · LOW</div><div class="num">01</div></div><div class="ex">A script that renames your vacation photos.</div><div class="verdict">Ship it</div></div>
-        <div class="lvl" data-lv="2"><div><div class="code">Lv. 02 · CAUTION</div><div class="num">02</div></div><div class="ex">A Chrome extension your team "kind of" relies on.</div><div class="verdict">Skim before merge</div></div>
-        <div class="lvl" data-lv="3"><div><div class="code">Lv. 03 · ELEVATED</div><div class="num">03</div></div><div class="ex">An internal tool that touches customer data.</div><div class="verdict">Stop vibing</div></div>
-        <div class="lvl" data-lv="4"><div><div class="code">Lv. 04 · HIGH</div><div class="num">04</div></div><div class="ex">A payments flow you described as "pretty solid."</div><div class="verdict">Dear god, no</div></div>
-        <div class="lvl" data-lv="5"><div><div class="code">Lv. 05 · CRITICAL</div><div class="num">05</div></div><div class="ex">Medical software you built over a long weekend.</div><div class="verdict">Call a lawyer</div></div>
-      </div>
-      <div class="where-am-i">
-        <span>Not sure where you land?</span>
-        <a href="#assess">Take the 2-min assessment →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Assessment -->
-<section id="assess">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">§ 03 · Self-Cert<br>Form DS·005</div>
-      <h2>Are You Shipping<br>Under the Influence?</h2>
-    </div>
-    <div id="assess-app"></div>
-  </div>
-</section>
-
-<!-- Horror Stories -->
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">§ 04 · Casefile<br>Form DS·011</div>
-      <h2>Field Reports<br><span class="sub-head">filed by anonymous shippers</span></h2>
-    </div>
-    <div class="stories-grid" id="stories"></div>
-  </div>
-</section>
-
-<!-- Pledge -->
-<section class="pledge">
-  <div class="pledge-inner">
-    <div class="tag">§ 05 · The Responsible Shipper's Oath</div>
-    <p>I swear to <em>read my own code</em> before I deploy it. Never to call a payments integration <em>"vibes-based."</em> And to remember users are real people who did not consent to being <em>beta testers.</em></p>
-    <div class="sign-row">
-      <input type="text" id="pledge-name" placeholder="your signature" maxlength="40">
-      <button class="cta" id="pledge-btn">I pledge →</button>
-    </div>
-    <div class="count" id="pledge-status">Pledge yours — take the oath below.<span class="toast" id="pledge-toast">Signed ✓</span></div>
-    <div class="signed-card" id="signed-card">
-      <canvas id="signed-canvas" width="1200" height="630"></canvas>
-      <div class="signed-actions">
-        <button class="cta" id="signed-dl">Download (PNG)</button>
-        <a class="cta light" id="signed-share" href="#" target="_blank" rel="noopener">Share on X →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Playbook -->
-<section class="playbook" id="playbook">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">§ 06 · Field Manual<br>Form DS·019</div>
-      <h2>The Playbook</h2>
-    </div>
-    <div class="pb-grid">
-      <div class="left">
-        <div class="price-block">$19<span class="price-currency">USD</span></div>
-        <div class="price-sub">PDF · ePub · Templates · ~90 pages</div>
-        <h3>You know your score.<br>Now fix it.</h3>
-        <p>Not another ebook. A field manual for the vibecoding era — outcomes you can ship tomorrow, not theory you'll forget by Friday.</p>
-        <div class="for-who" style="margin-top: 20px; padding: 14px 16px; border: 1.5px solid var(--ink); background: var(--paper); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.6;">
-          <strong style="color:var(--accent);">Built for:</strong> solo devs · AI-first builders · indie hackers · anyone shipping code they didn't read line-by-line.
-        </div>
-        <div style="margin-top: 14px; padding: 14px 16px; border: 1.5px dashed var(--ink); font-size: 15px; line-height: 1.5;">
-          <strong>90-day money-back guarantee.</strong> If the Playbook doesn't save you one weekend, email us and we'll refund it. No forms, no questions.
-        </div>
-        <div style="margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap;">
-          <a class="cta primary" href="/playbook" id="buy">Get the playbook → $19</a>
-          <a class="cta outline" href="/sample">Free sample chapter →</a>
+        <div class="desc">
+          <p class="lede">Whether you wrote your first line of code last Tuesday, or you're reviewing your AI's eighth pull request today — the manual is the same. Five minutes. Five questions. Every deploy.</p>
         </div>
       </div>
-      <div class="right">
-        <ul>
-          <li><span class="n">01</span><div class="t">Never commit a secret again<small>The 10-minute audit that catches keys, tokens, and .env files before git does.</small></div></li>
-          <li><span class="n">02</span><div class="t">Stop shipping Friday at 5pm<small>The decision tree that answers "should I deploy this?" in 60 seconds. Print it. Tape it to your monitor.</small></div></li>
-          <li><span class="n">03</span><div class="t">Audit any project in 10 minutes<small>The graduation checklist — from "works on my machine" to "safe for other humans." Copy-paste ready.</small></div></li>
-          <li><span class="n">04</span><div class="t">Make the AI build it safely<small>30 battle-tested prompts that bake bcrypt, rate limits, and CSRF into the first draft. Works in Claude, Cursor, Codex.</small></div></li>
-          <li><span class="n">05</span><div class="t">Keep your agents on a leash<small>How to scope permissions, delegate safely, and revoke access before things go sideways.</small></div></li>
-          <li><span class="n">+</span><div class="t">Learn from other people's disasters<small>12 real postmortems. What broke, the decision point, the principle violated, the fix.</small></div></li>
-        </ul>
+
+      <div class="audience-grid">
+        <div class="aud a1">
+          <div class="aud-top">
+            <span class="aud-tag">First-time builder</span>
+            <span class="aud-num">01 / 02</span>
+          </div>
+
+          <div class="aud-ill" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" stroke="#0d0e10" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 22h28v14a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V22z" fill="#fff"/>
+              <path d="M38 26h4a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4h-4"/>
+              <path d="M18 8c0 3 2 4 2 7s-2 4-2 6"/>
+              <path d="M26 8c0 3 2 4 2 7s-2 4-2 6"/>
+            </svg>
+          </div>
+
+          <p class="quote">“I learned to code in the time my coffee got <span class="hl"><span>cold.</span></span>”</p>
+          <p class="desc-p">An AI built most of it. You're not totally sure what every file does — and definitely not what happens when a stranger types something rude into the form.</p>
+
+          <div class="aud-foot">
+            <span>Risk &middot; high</span>
+            <span class="needs">Wants → a checklist for their phone</span>
+          </div>
+        </div>
+
+        <div class="aud a2">
+          <div class="aud-top">
+            <span class="aud-tag">Career engineer</span>
+            <span class="aud-num">02 / 02</span>
+          </div>
+
+          <div class="aud-ill" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" stroke="#0d0e10" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="16" width="32" height="24" rx="3" fill="#fff"/>
+              <rect x="12" y="12" width="32" height="24" rx="3" fill="#fff"/>
+              <rect x="16" y="8" width="32" height="24" rx="3" fill="#fff"/>
+              <path d="M22 18l3 3 7-7"/>
+              <path d="M22 26h16"/>
+            </svg>
+          </div>
+
+          <p class="quote">“My agent just opened its <span class="hl"><span>100th PR</span></span> today.”</p>
+          <p class="desc-p">You used to read every line. The volume's too high now, the model's too confident, and you're still the last human signature on the deploy.</p>
+
+          <div class="aud-foot">
+            <span>Volume &middot; high</span>
+            <span class="needs">Wants → the catch the agent missed</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="aud-summary">
+        <span>Same checklist</span><span class="dot" aria-hidden="true">•</span>
+        <span>Same five minutes</span><span class="dot" aria-hidden="true">•</span>
+        <span>Same weekend on the line</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="pill"><span class="ic" aria-hidden="true">↻</span> Three steps</span>
+          <h2 style="margin-top: 22px;">How Ship Responsibly works.</h2>
+        </div>
+        <p class="lede">Three steps before every deploy. Five minutes total. Zero <em>oh-no</em> mornings.</p>
+      </div>
+
+      <div class="step s1">
+        <div class="num">01.</div>
+        <div class="ill" aria-hidden="true">
+          <div class="ill-card">
+            <div class="head">
+              <span class="step-no">Severity — step 1 of 3</span>
+              <span>What's at stake?</span>
+            </div>
+            <div class="ill-severity">
+              <div class="row"><span class="dot"></span><span>Just you</span></div>
+              <div class="row"><span class="dot"></span><span>Your team</span></div>
+              <div class="row on"><span class="dot"></span><span>Other people's data</span><span class="check">✓</span></div>
+              <div class="row"><span class="dot"></span><span>Other people's money</span></div>
+              <div class="row"><span class="dot"></span><span>Other people's safety</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Pick your level</h3>
+          <p>Match what you're shipping to one of five severity tiers &mdash; from a weekend toy to a hospital intake form. Higher tier, stricter checklist.</p>
+          <span class="arrow">30 seconds &rarr;</span>
+        </div>
+      </div>
+
+      <div class="step s2">
+        <div class="num">02.</div>
+        <div class="ill" aria-hidden="true">
+          <div class="ill-card">
+            <div class="head">
+              <span class="step-no">Pre-flight — step 2 of 3</span>
+              <span>5 questions</span>
+            </div>
+            <div class="ill-checklist">
+              <div class="row done"><span class="box"></span><span class="lbl">No secrets in code</span></div>
+              <div class="row done"><span class="box"></span><span class="lbl">HTTPS enforced</span></div>
+              <div class="row done"><span class="box"></span><span class="lbl">API doesn't leak data</span></div>
+              <div class="row"><span class="box"></span><span class="lbl">Rollback under 5 min</span></div>
+              <div class="row"><span class="box"></span><span class="lbl">Human read the code</span></div>
+              <div class="progress">
+                <span>Progress</span>
+                <span><span class="count">3 / 5</span> cleared</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Run the check</h3>
+          <p>Walk through the five questions for your tier. Pass criteria are written right next to each one. No jargon, no points &mdash; just yes or no.</p>
+          <span class="arrow">5 minutes &rarr;</span>
+        </div>
+      </div>
+
+      <div class="step s3">
+        <div class="num">03.</div>
+        <div class="ill" aria-hidden="true">
+          <div class="ill-verdict">
+            <div class="vcard pass">
+              <span class="ic">✓</span>
+              <span class="lbl">Cleared</span>
+              <span class="sub">Ship it</span>
+            </div>
+            <div class="vcard hold">
+              <span class="ic">!</span>
+              <span class="lbl">Hold</span>
+              <span class="sub">Fix 2 items</span>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Cleared &mdash; or hold</h3>
+          <p>Green across the board? Cleared for departure. Anything red? Hold the deploy, fix what failed, then push. The manual has the fix for every failed question.</p>
+          <span class="arrow">Ship or stop &rarr;</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="f-inner">
-    <div>
-      <div class="lead">Ship<br>responsibly.</div>
-      <div class="small footer-tag">A non-binding advisory for the vibecoding era.</div>
+  <section class="buy" id="buy">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="pill"><span class="ic" aria-hidden="true">📕</span> The manual · ~90 pages</span>
+          <h2 style="margin-top: 22px;">Read it in an<br/>afternoon. Ship better<br/><em>by tomorrow.</em></h2>
+          <p class="lede">The five-level severity model. The 47-item Graduation Checklist. Thirty responsible prompt templates. Seven postmortems from real, recent incidents. Printable appendices for the wall above your desk.</p>
+
+          <div class="price-row">
+            <span class="price"><span class="cur">$</span>19</span>
+            <div class="price-sub">
+              One-time<br/>
+              <b>30-day refund</b>
+            </div>
+          </div>
+
+          <div class="ctas">
+            <a href="/playbook" class="btn btn-primary">Get the manual <span class="arr" aria-hidden="true">↗</span></a>
+            <a href="/sample" class="btn btn-ghost">Free sample chapter</a>
+          </div>
+
+          <div class="fine">
+            <span>PDF + ePub</span><span>Ungated updates</span><span>Personal license</span>
+          </div>
+        </div>
+
+        <div class="book" aria-hidden="true">
+          <span class="badge-pink">$19</span>
+
+          <div class="b-top">
+            <span class="b-tag">Manual</span>
+            <span class="b-ed">v.0.4 · 2026</span>
+          </div>
+
+          <div class="b-mark">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="37" fill="#ffffff" stroke="#0d0e10" stroke-width="2.5"/>
+              <path d="M16 44 L66 22 L46 64 L37 46 Z" fill="#ff4d97" stroke="#0d0e10" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M66 22 L37 46" stroke="#0d0e10" stroke-width="2.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <h3 class="b-title">Ship<br/>Responsibly<span class="dot">.</span></h3>
+
+          <div class="b-rule"></div>
+
+          <p class="b-sub">A pre-flight manual for the vibecoding era.</p>
+
+          <div class="deco">
+            <span class="bk b1"></span>
+            <span class="bk b2"></span>
+            <span class="bk b3"></span>
+            <span class="bk b4"></span>
+            <span class="bk b5"></span>
+            <span class="bk b6"></span>
+            <span class="bk b7"></span>
+          </div>
+
+          <div class="b-foot">
+            <span>10 chapters</span>
+            <span class="sep">●</span>
+            <span>47-pt checklist</span>
+            <span class="sep">●</span>
+            <span class="pn">~90 pp</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="small">
-      <strong>OFFICES</strong><br>
-      §01 Advisory<br>§02 Classification<br>§03 Self-Cert<br>§04 Casefile<br>§05 Oath<br>§06 Field Manual
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand-block">
+        <span class="brand">
+          <span class="glyph" aria-hidden="true">✈</span>
+          <span>Ship Responsibly</span>
+        </span>
+        <div class="tagline">Pre-flight · vibecoding era</div>
+      </div>
+      <div>
+        <h4>Inspired by</h4>
+        <p>
+          Peter Steinberger's distinction between vibe coding and agentic engineering on <a href="https://lexfridman.com/peter-steinberger-transcript/" target="_blank" rel="noopener">Lex Fridman's Podcast</a>, and Simon Willison's framework for responsible AI-assisted development on <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA" target="_blank" rel="noopener">Lenny's Podcast</a>.
+          <span class="small">Peter, Simon, Lex, and Lenny have not endorsed and are not affiliated with this project.</span>
+        </p>
+      </div>
     </div>
-    <div class="small">
-      <strong>ATTRIBUTION</strong><br><br>
-      Inspired by Peter Steinberger's distinction between vibe coding and agentic engineering on <a href="https://lexfridman.com/peter-steinberger-transcript/" target="_blank" rel="noopener">Lex Fridman's Podcast</a>, and Simon Willison's framework for responsible AI-assisted development on <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA" target="_blank" rel="noopener">Lenny's Podcast</a>.<br><br>
-      Peter, Simon, Lex, and Lenny have not endorsed and are not affiliated with this project.<br><br>
-      Vibecoded with love and good vibes in California by <a href="https://github.com/juanfiguera" target="_blank" rel="noopener">@juanfiguera</a>.
+    <div class="bottom">
+      <span>© 2026 · Ship Responsibly</span>
+      <span>Vibecoded with ❤️ by <a href="https://x.com/juanbfiguera" target="_blank" rel="noopener">@juanbfiguera</a></span>
+      <span>v.0.4</span>
     </div>
-  </div>
-  <div class="foot-bar">
-    <span>Ship Responsibly © 2026 · Dept. of Shipping</span>
-    <span>DS·2026·04·20 · v1.0</span>
   </div>
 </footer>
 
 <script src="/script.js" defer></script>
+
 </body>
 </html>

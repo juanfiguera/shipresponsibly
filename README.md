@@ -1,15 +1,18 @@
 # Ship Responsibly
 
-**A public service announcement for the vibecoding era.**
+**A pre-flight manual for the vibecoding era.**
 
-You vibecoded an app in 20 minutes. Someone just called it "critical infrastructure."
+Anyone can ship now. Few do it responsibly.
 
-Visit **[shipresponsibly.com](https://shipresponsibly.com)** to:
+Visit **[shipresponsibly.com](https://shipresponsibly.com)** for the manual:
 
-- Take the *Are You Shipping Under the Influence?* self-assessment
-- Read horror stories from the confessional
-- Sign the Responsible Shipper's Oath
-- Grab the playbook with scorecards, checklists, and prompts to ship better
+- A five-level severity model — match what you're shipping to a tier
+- A 47-item Graduation Checklist for pre-flight checks
+- Thirty responsible prompt templates
+- Seven postmortems from real, recent incidents
+- Printable appendices
+
+$19 · PDF + ePub · 30-day refund · Personal license.
 
 ## Credits
 
