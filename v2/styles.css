@@ -1,0 +1,705 @@
+/* Ship Responsibly · v2 design tokens + layout
+   Production extraction of v2/playful-landing.html with fixes:
+   - --ink-dim darkened to pass AA on white (3.0:1 -> 5.0:1)
+   - --pink-hot reserved for backgrounds/badges; never used as text on white
+   - @supports fallback when -webkit-text-stroke is unsupported
+   - :focus-visible ring works on light + dark surfaces
+   - prefers-reduced-motion neutralises every transition/transform
+   - .book .b-foot .pn override so dim text on the lavender cover stays readable
+*/
+
+:root {
+  --bg:           #ffffff;
+  --bg-soft:      #f6f5f1;
+  --ink:          #0d0e10;
+  --ink-soft:     #25272c;
+  --ink-mid:      #5a5d65;
+  --ink-dim:      #6e6f76;       /* was #98999f — 2.7:1 fail → 5.0:1 pass on white */
+  --rule:         #e6e5e1;
+
+  --lavender:     #d6c4f0;
+  --lavender-bg:  #e7daf6;
+  --mint:         #b8e6c8;
+  --pink:         #ffb6d6;
+  --pink-hot:     #ff4d97;
+  --sky:          #b6d4ee;
+  --yellow:       #f5e69a;
+
+  --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --focus-ring: 0 0 0 3px var(--bg), 0 0 0 5px var(--pink-hot);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--ink); text-decoration: none; }
+em, i, cite { font-style: normal; }
+.mono { font-family: var(--mono); }
+
+/* Visible-on-keyboard focus indicator. Works on both light + dark surfaces. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 6px;
+}
+.btn:focus-visible,
+.nav-cta:focus-visible {
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--ink);
+}
+
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 56px; }
+
+/* Visually-hidden helper for accessible labels (used on the SHIP wordmark). */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Type system */
+h1, h2, h3, h4 { margin: 0; color: var(--ink); font-weight: 800; letter-spacing: -0.032em; line-height: 0.92; font-style: normal; }
+h1 { font-size: clamp(48px, 7.4vw, 124px); }
+h2 { font-size: clamp(36px, 5.4vw, 80px); }
+h3 { font-size: clamp(20px, 1.8vw, 26px); letter-spacing: -0.018em; line-height: 1.2; }
+h4 { font-size: 16px; letter-spacing: -0.008em; }
+
+p { line-height: 1.55; margin: 0; }
+.lede { font-size: clamp(16px, 1.2vw, 19px); color: var(--ink-soft); line-height: 1.55; font-weight: 400; max-width: 56ch; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 500;
+  color: var(--ink-soft);
+}
+.pill .ic { font-size: 14px; line-height: 1; }
+.pill.on-lavender { background: rgba(255, 255, 255, 0.6); border-color: rgba(13, 14, 16, 0.08); }
+
+/* Nav */
+.nav { padding: 22px 0; position: relative; z-index: 10; }
+.nav .row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+}
+.nav .brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-weight: 700; letter-spacing: -0.012em;
+  font-size: 18px;
+}
+.nav .brand .glyph {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: var(--ink);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--bg); font-size: 14px;
+}
+.nav-links {
+  display: flex; gap: 32px;
+  font-size: 14px; color: var(--ink-soft); font-weight: 500;
+}
+.nav-links a { color: var(--ink-soft); transition: color .15s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 18px;
+  background: var(--ink); color: var(--bg);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 600;
+  transition: background .15s, color .15s, transform .15s;
+}
+/* On hover, swap to ink-on-pink-hot — white-on-pink-hot fails AA (~2.8:1). */
+.nav-cta:hover { background: var(--pink-hot); color: var(--ink); }
+.nav-cta .arr { font-family: var(--mono); font-weight: 600; }
+
+/* HERO */
+.hero { padding: 32px 0 56px; position: relative; }
+.hero-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 32px;
+}
+.hero h1 {
+  margin-top: 28px;
+  max-width: 16ch;
+  text-transform: uppercase;
+}
+.hero h1 em { color: var(--pink-hot); font-weight: 800; }
+.hero .scrolltag {
+  font-family: var(--sans); font-size: 13px;
+  color: var(--ink-mid); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.hero .scrolltag .arr { font-family: var(--mono); }
+
+/* Wordmark */
+.wordmark {
+  margin-top: 64px;
+  padding: 32px 0 12px;
+  border-bottom: 1.5px solid var(--ink);
+  display: flex; align-items: flex-end; gap: clamp(8px, 1.4vw, 24px);
+  position: relative;
+}
+.wordmark .letter {
+  position: relative;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(120px, 24vw, 380px);
+  line-height: 0.78;
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+}
+/* Outlined letters via -webkit-text-stroke (non-standard, but well-supported in
+   modern Chrome/Safari/Firefox). The @supports fallback below renders solid
+   ink letters with no underlay if a browser can't stroke transparent text — the
+   wordmark stays legible instead of disappearing into the block colors. */
+.wordmark .char {
+  position: relative; z-index: 2;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+  text-stroke: 1.5px var(--ink);
+  padding: 0 4px;
+}
+.wordmark .block {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: 24%; bottom: 4%;
+  left: 14%; right: 14%;
+}
+.l-s .block { background: var(--lavender); }
+.l-h .block { background: var(--pink); top: 12%; }
+.l-i .block { background: var(--sky); left: 8%; right: 8%; top: 22%; }
+.l-p .block { background: var(--yellow); top: 18%; }
+
+@supports not (-webkit-text-stroke: 1.5px black) {
+  .wordmark .char { color: var(--ink); -webkit-text-stroke: 0; text-stroke: 0; }
+  .wordmark .block { display: none; }
+}
+
+.wordmark .mascot {
+  margin-left: auto;
+  align-self: flex-end;
+  width: clamp(120px, 14vw, 220px);
+  transform: translateY(-12px) rotate(-8deg);
+}
+
+/* Section: Built for builders (lavender) */
+.built {
+  background: var(--lavender-bg);
+  border-radius: 0;
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.built .grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.built h2 { max-width: 14ch; text-transform: uppercase; }
+.built h2 em { color: var(--pink-hot); font-weight: 800; }
+.built .desc { padding-top: 12px; }
+.built .desc .lede { color: var(--ink-soft); max-width: 44ch; }
+
+/* Audience cards */
+.audience-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+.aud {
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 26px 28px 28px;
+  display: flex; flex-direction: column;
+  gap: 18px;
+  border: 1px solid rgba(13, 14, 16, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+.aud .aud-top {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.aud .aud-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-family: var(--mono); font-size: 11px;
+  font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink);
+}
+.aud.a1 .aud-tag { background: var(--lavender); }
+.aud.a2 .aud-tag { background: var(--mint); }
+.aud .aud-num {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; color: var(--ink-dim);
+}
+.aud .aud-ill {
+  width: 64px; height: 64px;
+  border-radius: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.aud.a1 .aud-ill { background: var(--lavender); }
+.aud.a2 .aud-ill { background: var(--mint); }
+.aud .aud-ill svg { width: 40px; height: 40px; }
+.aud .quote {
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 22ch;
+}
+.aud .quote .hl {
+  background: linear-gradient(180deg, transparent 60%, currentColor 60%, currentColor 88%, transparent 88%);
+  padding: 0 2px;
+}
+.aud.a1 .quote .hl { color: var(--lavender); }
+.aud.a2 .quote .hl { color: var(--mint); }
+.aud .quote .hl span { color: var(--ink); }
+.aud p.desc-p {
+  color: var(--ink-mid); font-size: 14px; line-height: 1.55;
+  max-width: 42ch;
+}
+.aud .aud-foot {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px dashed var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-mid);
+  gap: 12px;
+}
+.aud .aud-foot .needs { color: var(--ink); font-weight: 600; }
+
+.aud-summary {
+  margin-top: 36px;
+  display: flex; justify-content: center;
+  gap: 28px;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft);
+  flex-wrap: wrap;
+}
+.aud-summary .dot { color: var(--pink-hot); }
+
+/* How it works */
+.how { padding: 110px 0 100px; }
+.how .head {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: end;
+  margin-bottom: 64px;
+}
+.how .head h2 { text-transform: uppercase; max-width: 14ch; }
+.how .head .lede { padding-bottom: 12px; }
+.how .head .lede em { color: var(--pink-hot); font-weight: 700; }
+
+.step {
+  display: grid; grid-template-columns: 0.7fr 360px 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+}
+.step:last-child { border-bottom: 1px solid var(--rule); }
+.step .num {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(48px, 5vw, 78px);
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.step .ill {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.step.s1 .ill { background: var(--mint); }
+.step.s2 .ill { background: var(--pink); }
+.step.s3 .ill { background: var(--sky); }
+.step .copy h3 {
+  font-size: clamp(22px, 1.8vw, 28px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.step .copy p {
+  color: var(--ink-mid); margin-top: 12px;
+  max-width: 44ch; line-height: 1.55;
+}
+.step .copy .arrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 12px;
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-mid);
+}
+
+/* Step illustration internals */
+.ill-card {
+  width: calc(100% - 44px);
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 6px 0 -2px rgba(13, 14, 16, 0.08), 0 2px 0 0 rgba(13, 14, 16, 0.12);
+  font-family: var(--mono);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.ill-card .head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-mid);
+}
+.ill-card .head .step-no { color: var(--ink); font-weight: 600; }
+
+/* Step 1 — severity picker */
+.ill-severity .row {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11.5px; color: var(--ink);
+  padding: 4px 0;
+}
+.ill-severity .row .dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  border: 1.5px solid var(--ink); background: transparent;
+  flex-shrink: 0;
+}
+.ill-severity .row.on {
+  background: var(--ink); color: var(--bg);
+  margin: 0 -8px; padding: 5px 8px;
+  border-radius: 5px;
+}
+.ill-severity .row.on .dot { background: var(--mint); border-color: var(--mint); }
+.ill-severity .row.on .check {
+  margin-left: auto; color: var(--mint); font-weight: 700; font-size: 12px;
+}
+
+/* Step 2 — checklist */
+.ill-checklist { gap: 6px; }
+.ill-checklist .row {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11.5px; color: var(--ink);
+  padding: 3px 0;
+}
+.ill-checklist .row .box {
+  width: 14px; height: 14px;
+  border: 1.5px solid var(--ink); background: transparent;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 2px;
+}
+.ill-checklist .row.done .box { background: var(--ink); }
+.ill-checklist .row.done .box::after {
+  content: ''; position: absolute; inset: 2px;
+  background: var(--pink);
+  clip-path: polygon(15% 50%, 38% 75%, 85% 18%, 78% 10%, 38% 62%, 22% 42%);
+}
+.ill-checklist .row.done .lbl { text-decoration: line-through; color: var(--ink-mid); }
+.ill-checklist .progress {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-mid);
+}
+.ill-checklist .progress .count { color: var(--ink); font-weight: 600; }
+
+/* Step 3 — verdict cards */
+.ill-verdict {
+  width: 100%; padding: 12px 22px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ill-verdict .vcard {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-family: var(--mono);
+  background: var(--bg);
+  border: 1.5px solid var(--ink);
+  box-shadow: 0 4px 0 -1px rgba(13, 14, 16, 0.16);
+}
+.ill-verdict .vcard .ic {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800;
+  font-family: var(--sans);
+  flex-shrink: 0;
+}
+.ill-verdict .vcard.pass { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.ill-verdict .vcard.pass .ic { background: var(--mint); color: var(--ink); }
+.ill-verdict .vcard.hold { background: var(--bg); color: var(--ink); }
+.ill-verdict .vcard.hold .ic { background: var(--pink); color: var(--ink); }
+.ill-verdict .vcard .lbl {
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.ill-verdict .vcard .sub {
+  margin-left: auto;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  opacity: 0.7;
+}
+.ill-verdict .vcard.pass .sub { color: var(--bg); }
+
+/* Get the manual */
+.buy {
+  background: var(--bg-soft);
+  padding: 110px 0 110px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.buy .grid {
+  display: grid; grid-template-columns: 1.2fr 0.8fr;
+  gap: 96px; align-items: center;
+}
+.buy h2 { text-transform: uppercase; max-width: 12ch; }
+.buy h2 em { color: var(--pink-hot); font-weight: 800; }
+.buy .lede { margin-top: 26px; max-width: 52ch; }
+.buy .price-row { display: flex; align-items: baseline; gap: 22px; margin-top: 36px; }
+.buy .price {
+  font-size: clamp(64px, 7vw, 96px);
+  font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+}
+.buy .price .cur { color: var(--ink-mid); font-weight: 500; }
+.buy .price-sub {
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-mid); line-height: 1.6;
+}
+.buy .price-sub b { color: var(--ink); font-weight: 600; }
+.buy .ctas { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 22px;
+  border-radius: 999px;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: -0.005em;
+  cursor: pointer; border: 1.5px solid transparent;
+  transition: background .15s, color .15s, border-color .15s, transform .15s;
+}
+.btn:active { transform: translateY(1px); }
+.btn .arr { font-family: var(--mono); font-weight: 600; }
+.btn-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+/* Ink text on pink-hot bg on hover passes ~7.5:1 — white on pink-hot fails AA. */
+.btn-primary:hover { background: var(--pink-hot); color: var(--ink); border-color: var(--pink-hot); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+
+.buy .fine {
+  margin-top: 24px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-mid);
+}
+.buy .fine span + span::before { content: '  ·  '; }
+
+/* Book cover.
+   The 2-layer shadow is intentionally coupled to the .buy section's bg-soft
+   background — it creates a stacked-paper offset. If a future change places
+   .book on a different background, also update the first shadow layer. */
+.book {
+  position: relative;
+  aspect-ratio: 5 / 7;
+  background: var(--lavender);
+  border-radius: 12px;
+  padding: 34px 32px 28px;
+  display: flex; flex-direction: column;
+  gap: 18px;
+  box-shadow: 12px 12px 0 -1px var(--bg-soft), 12px 12px 0 0 var(--ink);
+  overflow: hidden;
+}
+.book .badge-pink {
+  position: absolute; top: 18px; right: 18px;
+  background: var(--pink-hot); color: var(--bg);
+  border-radius: 999px;
+  font-family: var(--mono); font-size: 10.5px;
+  font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 7px 12px;
+  z-index: 3;
+}
+.book .b-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  font-family: var(--mono);
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink);
+  padding-right: 64px;
+}
+.book .b-top .b-tag { font-weight: 600; }
+.book .b-top .b-ed { color: var(--ink-soft); opacity: 0.75; }
+.book .b-mark { width: 58px; height: 58px; flex-shrink: 0; }
+.book .b-mark svg { width: 100%; height: 100%; display: block; }
+.book .b-title {
+  font-family: var(--sans);
+  font-size: clamp(44px, 5.6vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin: 4px 0 0;
+}
+.book .b-title .dot { color: var(--pink-hot); }
+.book .b-rule {
+  width: 44px; height: 3px;
+  background: var(--ink);
+  margin-top: 4px;
+}
+.book .b-sub {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  max-width: 22ch;
+  margin: 0;
+}
+.book .deco {
+  align-self: center;
+  margin-top: auto;
+  display: flex; align-items: flex-end; gap: 6px;
+  padding: 16px 0 8px;
+}
+.book .deco .bk { width: 14px; border-radius: 2px; background: var(--ink); }
+.book .deco .bk.b1 { height: 60px; background: var(--ink); }
+.book .deco .bk.b2 { height: 80px; background: var(--mint); }
+.book .deco .bk.b3 { height: 50px; background: var(--ink); }
+.book .deco .bk.b4 { height: 72px; background: var(--pink); }
+.book .deco .bk.b5 { height: 64px; background: var(--ink); }
+.book .deco .bk.b6 { height: 86px; background: var(--sky); }
+.book .deco .bk.b7 { height: 56px; background: var(--ink); }
+.book .b-foot {
+  padding-top: 18px;
+  border-top: 1.5px dashed rgba(13, 14, 16, 0.3);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+}
+.book .b-foot .sep { color: var(--ink); opacity: 0.4; }
+/* On lavender, --ink-dim still drops below AA. Override to ink-soft for this surface. */
+.book .b-foot .pn { color: var(--ink-soft); font-weight: 500; }
+
+/* Footer */
+.footer {
+  background: var(--bg);
+  padding: 56px 0 32px;
+}
+.footer-grid { display: grid; grid-template-columns: 1.2fr 1.6fr; gap: 80px; align-items: start; }
+.footer .brand-block .brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 22px; font-weight: 700; letter-spacing: -0.018em;
+  color: var(--ink);
+}
+.footer .brand-block .brand .glyph {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--ink); color: var(--bg);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 15px;
+}
+.footer .brand-block .tagline {
+  margin-top: 12px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-mid);
+}
+.footer h4 {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-mid);
+  margin: 0 0 12px;
+}
+.footer p {
+  font-size: 14px; color: var(--ink-soft); line-height: 1.6; max-width: 56ch;
+}
+/* Pink-hot as text on white fails ~2.8:1. Use ink text + pink-hot underline. */
+.footer p a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--pink-hot);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+.footer p a:hover { color: var(--pink-hot); text-decoration-color: var(--ink); }
+.footer .small {
+  display: block;
+  font-size: 12px; color: var(--ink-mid);
+  margin-top: 10px;
+}
+.footer .bottom {
+  margin-top: 48px; padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; gap: 24px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-mid); flex-wrap: wrap;
+}
+.footer .bottom a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--pink-hot);
+  text-underline-offset: 3px;
+  transition: color .15s, text-decoration-color .15s;
+}
+.footer .bottom a:hover { color: var(--pink-hot); text-decoration-color: var(--ink); }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .wrap { padding: 0 32px; }
+  .built .grid { grid-template-columns: 1fr; gap: 32px; }
+  .how .head { grid-template-columns: 1fr; gap: 24px; }
+  .step { grid-template-columns: 1fr; gap: 24px; padding: 32px 0; }
+  .step .ill { height: 180px; }
+  .buy .grid { grid-template-columns: 1fr; gap: 56px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 720px) {
+  .wrap { padding: 0 22px; }
+  .hero { padding: 24px 0 40px; }
+  .hero-top { flex-direction: column; gap: 16px; }
+  .hero h1 { margin-top: 16px; }
+  .wordmark { margin-top: 36px; gap: 4px; }
+  .wordmark .mascot { display: none; }
+  .built, .how, .buy { padding: 64px 0; }
+  .nav-links { display: none; }
+  .aud { padding: 22px 20px 24px; }
+  .audience-grid { grid-template-columns: 1fr; gap: 16px; }
+  .aud-summary { gap: 12px; font-size: 11px; }
+}
+
+/* Accessibility: respect prefers-reduced-motion. The mascot rotation and the
+   .btn:active translate are mild, but vestibular users should still get a calm
+   page. Disabling transitions also kills the .15s color shifts. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .wordmark .mascot { transform: none; }
+  .btn:active { transform: none; }
+}

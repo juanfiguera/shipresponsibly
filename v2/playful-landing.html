@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ship Responsibly · A pre-flight manual for builders</title>
+  <meta name="description" content="A pre-launch manual for people shipping AI-assisted software. For first-time builders and senior engineers alike. $19." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #ffffff;
+      --bg-soft:      #f6f5f1;
+      --ink:          #0d0e10;
+      --ink-soft:     #25272c;
+      --ink-mid:      #5a5d65;
+      --ink-dim:      #98999f;
+      --rule:         #e6e5e1;
+
+      /* Playful pastels — no beige/brown/red */
+      --lavender:     #d6c4f0;
+      --lavender-bg:  #e7daf6;
+      --mint:         #b8e6c8;
+      --pink:         #ffb6d6;
+      --pink-hot:     #ff4d97;
+      --sky:          #b6d4ee;
+      --yellow:       #f5e69a;
+
+      --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: var(--ink); text-decoration: none; }
+    em, i, cite { font-style: normal; }
+    .mono { font-family: var(--mono); }
+
+    .wrap { max-width: 1320px; margin: 0 auto; padding: 0 56px; }
+
+    /* ─────────────────────────── Type system */
+    h1, h2, h3, h4 { margin: 0; color: var(--ink); font-weight: 800; letter-spacing: -0.032em; line-height: 0.92; font-style: normal; }
+    h1 { font-size: clamp(48px, 7.4vw, 124px); }
+    h2 { font-size: clamp(36px, 5.4vw, 80px); }
+    h3 { font-size: clamp(20px, 1.8vw, 26px); letter-spacing: -0.018em; line-height: 1.2; }
+    h4 { font-size: 16px; letter-spacing: -0.008em; }
+
+    p { line-height: 1.55; margin: 0; }
+    .lede { font-size: clamp(16px, 1.2vw, 19px); color: var(--ink-soft); line-height: 1.55; font-weight: 400; max-width: 56ch; }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px;
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 13px; font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .pill .ic { font-size: 14px; line-height: 1; }
+    .pill.on-lavender { background: rgba(255, 255, 255, 0.6); border-color: rgba(13, 14, 16, 0.08); }
+
+    /* ─────────────────────────── Nav */
+    .nav {
+      padding: 22px 0;
+      position: relative; z-index: 10;
+    }
+    .nav .row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+    }
+    .nav .brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 700; letter-spacing: -0.012em;
+      font-size: 18px;
+    }
+    .nav .brand .glyph {
+      width: 28px; height: 28px; border-radius: 7px;
+      background: var(--ink);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--bg); font-size: 14px;
+    }
+    .nav-links {
+      display: flex; gap: 32px;
+      font-size: 14px; color: var(--ink-soft); font-weight: 500;
+    }
+    .nav-links a { color: var(--ink-soft); transition: color .15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 18px;
+      background: var(--ink); color: var(--bg);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 600;
+      transition: background .15s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--pink-hot); }
+    .nav-cta .arr { font-family: var(--mono); font-weight: 600; }
+
+    /* ─────────────────────────── HERO */
+    .hero { padding: 32px 0 56px; position: relative; }
+    .hero-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 32px;
+    }
+    .hero h1 {
+      margin-top: 28px;
+      max-width: 16ch;
+      text-transform: uppercase;
+    }
+    .hero h1 em { color: var(--pink-hot); font-weight: 800; }
+    .hero .scrolltag {
+      font-family: var(--sans); font-size: 13px;
+      color: var(--ink-mid); font-weight: 500;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .hero .scrolltag .arr { font-family: var(--mono); }
+
+    /* Wordmark */
+    .wordmark {
+      margin-top: 64px;
+      padding: 32px 0 12px;
+      border-bottom: 1.5px solid var(--ink);
+      display: flex; align-items: flex-end; gap: clamp(8px, 1.4vw, 24px);
+      position: relative;
+    }
+    .wordmark .letter {
+      position: relative;
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(120px, 24vw, 380px);
+      line-height: 0.78;
+      letter-spacing: -0.04em;
+      flex-shrink: 0;
+    }
+    .wordmark .char {
+      position: relative; z-index: 2;
+      display: inline-block;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--ink);
+      text-stroke: 1.5px var(--ink);
+      padding: 0 4px;
+    }
+    .wordmark .block {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      top: 24%; bottom: 4%;
+      left: 14%; right: 14%;
+    }
+    .l-s .block { background: var(--lavender); }
+    .l-h .block { background: var(--pink); top: 12%; }
+    .l-i .block { background: var(--sky); left: 8%; right: 8%; top: 22%; }
+    .l-p .block { background: var(--yellow); top: 18%; }
+
+    .wordmark .mascot {
+      margin-left: auto;
+      align-self: flex-end;
+      width: clamp(120px, 14vw, 220px);
+      transform: translateY(-12px) rotate(-8deg);
+    }
+
+    /* ─────────────────────────── Section: Built for builders (lavender) */
+    .built {
+      background: var(--lavender-bg);
+      border-radius: 0;
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .built .grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .built h2 { max-width: 14ch; text-transform: uppercase; }
+    .built .desc {
+      padding-top: 12px;
+    }
+    .built .desc .lede { color: var(--ink-soft); max-width: 44ch; }
+
+    /* Audience cards — two big tiles answering "Who's flying today" */
+    .audience-grid {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .aud {
+      background: var(--bg);
+      border-radius: 18px;
+      padding: 26px 28px 28px;
+      display: flex; flex-direction: column;
+      gap: 18px;
+      border: 1px solid rgba(13, 14, 16, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .aud .aud-top {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .aud .aud-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-family: var(--mono); font-size: 11px;
+      font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink);
+    }
+    .aud.a1 .aud-tag { background: var(--lavender); }
+    .aud.a2 .aud-tag { background: var(--mint); }
+    .aud .aud-num {
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.18em; color: var(--ink-dim);
+    }
+    .aud .aud-ill {
+      width: 64px; height: 64px;
+      border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .aud.a1 .aud-ill { background: var(--lavender); }
+    .aud.a2 .aud-ill { background: var(--mint); }
+    .aud .aud-ill svg { width: 40px; height: 40px; }
+    .aud .quote {
+      font-size: clamp(20px, 1.8vw, 26px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 22ch;
+    }
+    .aud .quote .hl {
+      background: linear-gradient(180deg, transparent 60%, currentColor 60%, currentColor 88%, transparent 88%);
+      padding: 0 2px;
+    }
+    .aud.a1 .quote .hl { color: var(--lavender); }
+    .aud.a2 .quote .hl { color: var(--mint); }
+    .aud .quote .hl span { color: var(--ink); }
+    .aud p.desc-p {
+      color: var(--ink-mid); font-size: 14px; line-height: 1.55;
+      max-width: 42ch;
+    }
+    .aud .aud-foot {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px dashed var(--rule);
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--mono); font-size: 10.5px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-mid);
+      gap: 12px;
+    }
+    .aud .aud-foot .needs { color: var(--ink); font-weight: 600; }
+
+    .aud-summary {
+      margin-top: 36px;
+      display: flex; justify-content: center;
+      gap: 28px;
+      font-family: var(--mono); font-size: 12px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-soft);
+      flex-wrap: wrap;
+    }
+    .aud-summary .dot { color: var(--pink-hot); }
+
+    /* ─────────────────────────── How it works */
+    .how { padding: 110px 0 100px; }
+    .how .head {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: end;
+      margin-bottom: 64px;
+    }
+    .how .head h2 { text-transform: uppercase; max-width: 14ch; }
+    .how .head .lede { padding-bottom: 12px; }
+
+    .step {
+      display: grid; grid-template-columns: 0.7fr 360px 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 36px 0;
+      border-top: 1px solid var(--rule);
+    }
+    .step:last-child { border-bottom: 1px solid var(--rule); }
+    .step .num {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(48px, 5vw, 78px);
+      color: var(--ink);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .step .ill {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .step.s1 .ill { background: var(--mint); }
+    .step.s2 .ill { background: var(--pink); }
+    .step.s3 .ill { background: var(--sky); }
+    .step .copy h3 {
+      font-size: clamp(22px, 1.8vw, 28px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    .step .copy p {
+      color: var(--ink-mid); margin-top: 12px;
+      max-width: 44ch; line-height: 1.55;
+    }
+    .step .copy .arrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 12px;
+      font-family: var(--mono); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+
+    /* Step illustration internals — each one looks like a small product screen */
+
+    /* Shared mock-card framing inside the colored block */
+    .ill-card {
+      width: calc(100% - 44px);
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 14px 16px 16px;
+      box-shadow: 0 6px 0 -2px rgba(13, 14, 16, 0.08), 0 2px 0 0 rgba(13, 14, 16, 0.12);
+      font-family: var(--mono);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .ill-card .head {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+    .ill-card .head .step-no { color: var(--ink); font-weight: 600; }
+
+    /* Step 1 — severity picker */
+    .ill-severity .row {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 11.5px; color: var(--ink);
+      padding: 4px 0;
+    }
+    .ill-severity .row .dot {
+      width: 11px; height: 11px; border-radius: 50%;
+      border: 1.5px solid var(--ink); background: transparent;
+      flex-shrink: 0;
+    }
+    .ill-severity .row.on {
+      background: var(--ink); color: var(--bg);
+      margin: 0 -8px; padding: 5px 8px;
+      border-radius: 5px;
+    }
+    .ill-severity .row.on .dot { background: var(--mint); border-color: var(--mint); }
+    .ill-severity .row.on .check {
+      margin-left: auto; color: var(--mint); font-weight: 700; font-size: 12px;
+    }
+
+    /* Step 2 — checklist (refined) */
+    .ill-checklist {
+      gap: 6px;
+    }
+    .ill-checklist .row {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 11.5px; color: var(--ink);
+      padding: 3px 0;
+    }
+    .ill-checklist .row .box {
+      width: 14px; height: 14px;
+      border: 1.5px solid var(--ink); background: transparent;
+      flex-shrink: 0;
+      position: relative;
+      border-radius: 2px;
+    }
+    .ill-checklist .row.done .box { background: var(--ink); }
+    .ill-checklist .row.done .box::after {
+      content: ''; position: absolute; inset: 2px;
+      background: var(--pink);
+      clip-path: polygon(15% 50%, 38% 75%, 85% 18%, 78% 10%, 38% 62%, 22% 42%);
+    }
+    .ill-checklist .row.done .lbl { text-decoration: line-through; color: var(--ink-mid); }
+    .ill-checklist .progress {
+      margin-top: 6px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--rule);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+    .ill-checklist .progress .count { color: var(--ink); font-weight: 600; }
+
+    /* Step 3 — binary verdict cards (cleared vs. hold) */
+    .ill-verdict {
+      width: 100%; padding: 12px 22px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .ill-verdict .vcard {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-family: var(--mono);
+      background: var(--bg);
+      border: 1.5px solid var(--ink);
+      box-shadow: 0 4px 0 -1px rgba(13, 14, 16, 0.16);
+    }
+    .ill-verdict .vcard .ic {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800;
+      font-family: var(--sans);
+      flex-shrink: 0;
+    }
+    .ill-verdict .vcard.pass { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .ill-verdict .vcard.pass .ic { background: var(--mint); color: var(--ink); }
+    .ill-verdict .vcard.hold { background: var(--bg); color: var(--ink); }
+    .ill-verdict .vcard.hold .ic { background: var(--pink); color: var(--ink); }
+    .ill-verdict .vcard .lbl {
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .ill-verdict .vcard .sub {
+      margin-left: auto;
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .ill-verdict .vcard.pass .sub { color: var(--bg); }
+
+    /* ─────────────────────────── Get the manual */
+    .buy {
+      background: var(--bg-soft);
+      padding: 110px 0 110px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .buy .grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      gap: 96px; align-items: center;
+    }
+    .buy h2 { text-transform: uppercase; max-width: 12ch; }
+    .buy h2 em { color: var(--pink-hot); font-weight: 800; }
+    .buy .lede { margin-top: 26px; max-width: 52ch; }
+    .buy .price-row { display: flex; align-items: baseline; gap: 22px; margin-top: 36px; }
+    .buy .price {
+      font-size: clamp(64px, 7vw, 96px);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+    }
+    .buy .price .cur { color: var(--ink-mid); font-weight: 500; }
+    .buy .price-sub {
+      font-family: var(--mono); font-size: 12px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-mid); line-height: 1.6;
+    }
+    .buy .price-sub b { color: var(--ink); font-weight: 600; }
+    .buy .ctas { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 22px;
+      border-radius: 999px;
+      font-size: 14px; font-weight: 600;
+      letter-spacing: -0.005em;
+      cursor: pointer; border: 1.5px solid transparent;
+      transition: background .15s, color .15s, border-color .15s, transform .15s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn .arr { font-family: var(--mono); font-weight: 600; }
+    .btn-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .btn-primary:hover { background: var(--pink-hot); border-color: var(--pink-hot); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--bg); }
+    .buy .fine {
+      margin-top: 24px;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+    .buy .fine span + span::before { content: '  ·  '; }
+
+    /* Book cover */
+    .book {
+      position: relative;
+      aspect-ratio: 5 / 7;
+      background: var(--lavender);
+      border-radius: 12px;
+      padding: 34px 32px 28px;
+      display: flex; flex-direction: column;
+      gap: 18px;
+      box-shadow: 12px 12px 0 -1px var(--bg-soft), 12px 12px 0 0 var(--ink);
+      overflow: hidden;
+    }
+    .book .badge-pink {
+      position: absolute; top: 18px; right: 18px;
+      background: var(--pink-hot); color: var(--bg);
+      border-radius: 999px;
+      font-family: var(--mono); font-size: 10.5px;
+      font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 7px 12px;
+      z-index: 3;
+    }
+
+    /* Top header strip */
+    .book .b-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      font-family: var(--mono);
+      font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink);
+      padding-right: 64px; /* leave room for the price badge */
+    }
+    .book .b-top .b-tag { font-weight: 600; }
+    .book .b-top .b-ed { color: var(--ink-soft); opacity: 0.75; }
+
+    /* Brand mark — paper plane in a circle */
+    .book .b-mark {
+      width: 58px; height: 58px;
+      flex-shrink: 0;
+    }
+    .book .b-mark svg { width: 100%; height: 100%; display: block; }
+
+    /* Title */
+    .book .b-title {
+      font-family: var(--sans);
+      font-size: clamp(44px, 5.6vw, 60px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.88;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin: 4px 0 0;
+    }
+    .book .b-title .dot { color: var(--pink-hot); }
+
+    /* Hairline divider */
+    .book .b-rule {
+      width: 44px; height: 3px;
+      background: var(--ink);
+      margin-top: 4px;
+    }
+
+    /* Subtitle */
+    .book .b-sub {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--ink-soft);
+      max-width: 22ch;
+      margin: 0;
+    }
+
+    /* Decorative book-spines graphic */
+    .book .deco {
+      align-self: center;
+      margin-top: auto;
+      display: flex; align-items: flex-end; gap: 6px;
+      padding: 16px 0 8px;
+    }
+    .book .deco .bk {
+      width: 14px; border-radius: 2px;
+      background: var(--ink);
+    }
+    .book .deco .bk.b1 { height: 60px; background: var(--ink); }
+    .book .deco .bk.b2 { height: 80px; background: var(--mint); }
+    .book .deco .bk.b3 { height: 50px; background: var(--ink); }
+    .book .deco .bk.b4 { height: 72px; background: var(--pink); }
+    .book .deco .bk.b5 { height: 64px; background: var(--ink); }
+    .book .deco .bk.b6 { height: 86px; background: var(--sky); }
+    .book .deco .bk.b7 { height: 56px; background: var(--ink); }
+
+    /* Footer meta strip */
+    .book .b-foot {
+      padding-top: 18px;
+      border-top: 1.5px dashed rgba(13, 14, 16, 0.3);
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .book .b-foot .sep { color: var(--ink); opacity: 0.4; }
+    .book .b-foot .pn { color: var(--ink-mid); font-weight: 500; }
+
+    /* ─────────────────────────── Footer */
+    .footer {
+      background: var(--bg);
+      padding: 56px 0 32px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1.6fr; gap: 80px; align-items: start; }
+    .footer .brand-block .brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 22px; font-weight: 700; letter-spacing: -0.018em;
+      color: var(--ink);
+    }
+    .footer .brand-block .brand .glyph {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--ink); color: var(--bg);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .footer .brand-block .tagline {
+      margin-top: 12px;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+    .footer h4 {
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-mid);
+      margin: 0 0 12px;
+    }
+    .footer p {
+      font-size: 14px; color: var(--ink-soft); line-height: 1.6; max-width: 56ch;
+    }
+    .footer p a { color: var(--pink-hot); text-decoration: underline; text-decoration-color: rgba(255, 77, 151, 0.4); text-underline-offset: 3px; }
+    .footer p a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+    .footer .small {
+      display: block;
+      font-size: 12px; color: var(--ink-mid);
+      margin-top: 10px;
+    }
+    .footer .bottom {
+      margin-top: 48px; padding-top: 22px;
+      border-top: 1px solid var(--rule);
+      display: flex; justify-content: space-between; gap: 24px;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-mid); flex-wrap: wrap;
+    }
+    .footer .bottom a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--pink-hot);
+      text-underline-offset: 3px;
+      transition: color .15s, text-decoration-color .15s;
+    }
+    .footer .bottom a:hover { color: var(--pink-hot); text-decoration-color: var(--ink); }
+
+    /* ─────────────────────────── Responsive */
+    @media (max-width: 1100px) {
+      .wrap { padding: 0 32px; }
+      .built .grid { grid-template-columns: 1fr; gap: 32px; }
+      .how .head { grid-template-columns: 1fr; gap: 24px; }
+      .step { grid-template-columns: 1fr; gap: 24px; padding: 32px 0; }
+      .step .ill { height: 180px; }
+      .buy .grid { grid-template-columns: 1fr; gap: 56px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 720px) {
+      .wrap { padding: 0 22px; }
+      .hero { padding: 24px 0 40px; }
+      .hero-top { flex-direction: column; gap: 16px; }
+      .hero h1 { margin-top: 16px; }
+      .wordmark { margin-top: 36px; gap: 4px; }
+      .wordmark .mascot { display: none; }
+      .built, .how, .buy { padding: 64px 0; }
+      .nav-links { display: none; }
+      .aud { padding: 22px 20px 24px; }
+      .audience-grid { grid-template-columns: 1fr; gap: 16px; }
+      .aud-summary { gap: 12px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─────────────────────────── NAV -->
+  <header class="nav">
+    <div class="wrap row">
+      <a href="#" class="brand">
+        <span class="glyph">✈</span>
+        <span>Ship Responsibly</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#built">For builders</a>
+        <a href="#how">How it works</a>
+        <a href="#buy">Manual</a>
+      </nav>
+      <a href="#buy" class="nav-cta">Get the manual <span class="arr">↗</span></a>
+    </div>
+  </header>
+
+  <!-- ─────────────────────────── HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="pill"><span class="ic">✈︎</span> Pre-Flight Manual · v.0.4</span>
+        <span class="scrolltag">Scroll down <span class="arr">↓</span></span>
+      </div>
+
+      <h1>Anyone can ship now.<br/>Few do it <em>responsibly</em>.</h1>
+
+      <!-- Decorative wordmark -->
+      <div class="wordmark">
+        <span class="letter l-s"><span class="block"></span><span class="char">S</span></span>
+        <span class="letter l-h"><span class="block"></span><span class="char">H</span></span>
+        <span class="letter l-i"><span class="block"></span><span class="char">I</span></span>
+        <span class="letter l-p"><span class="block"></span><span class="char">P</span></span>
+
+        <!-- Paper plane mascot -->
+        <svg class="mascot" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Body -->
+          <path d="M14 92 L220 22 L142 168 L108 110 Z" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round" fill="white"/>
+          <!-- Fold line -->
+          <path d="M220 22 L108 110" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round"/>
+          <!-- Inner triangle (back fold) -->
+          <path d="M14 92 L108 110 L142 168 Z" fill="#d6c4f0" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round"/>
+          <!-- Speed line -->
+          <path d="M30 134 Q 18 142 8 158" stroke="#0d0e10" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M58 148 Q 48 156 40 170" stroke="#0d0e10" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── BUILT FOR (lavender section) -->
+  <section class="built" id="built">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="pill on-lavender"><span class="ic">✦</span> Who's flying today</span>
+          <h2 style="margin-top: 22px;">Built for builders,<br/>grounded in <em style="color: var(--pink-hot); font-weight: 800;">discipline.</em></h2>
+        </div>
+        <div class="desc">
+          <p class="lede">Whether you wrote your first line of code last Tuesday, or you're reviewing your AI's eighth pull request today — the manual is the same. Five minutes. Five questions. Every deploy.</p>
+        </div>
+      </div>
+
+      <div class="audience-grid">
+        <div class="aud a1">
+          <div class="aud-top">
+            <span class="aud-tag">First-time builder</span>
+            <span class="aud-num">01 / 02</span>
+          </div>
+
+          <div class="aud-ill">
+            <!-- Coffee cup with steam — "learned to code while coffee got cold" -->
+            <svg viewBox="0 0 56 56" fill="none" stroke="#0d0e10" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 22h28v14a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V22z" fill="#fff"/>
+              <path d="M38 26h4a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4h-4"/>
+              <path d="M18 8c0 3 2 4 2 7s-2 4-2 6"/>
+              <path d="M26 8c0 3 2 4 2 7s-2 4-2 6"/>
+            </svg>
+          </div>
+
+          <p class="quote">“I learned to code in the time my coffee got <span class="hl"><span>cold.</span></span>”</p>
+          <p class="desc-p">An AI built most of it. You're not totally sure what every file does — and definitely not what happens when a stranger types something rude into the form.</p>
+
+          <div class="aud-foot">
+            <span>Risk &middot; high</span>
+            <span class="needs">Wants → a checklist for their phone</span>
+          </div>
+        </div>
+
+        <div class="aud a2">
+          <div class="aud-top">
+            <span class="aud-tag">Career engineer</span>
+            <span class="aud-num">02 / 02</span>
+          </div>
+
+          <div class="aud-ill">
+            <!-- Stack of pull requests with check / cross -->
+            <svg viewBox="0 0 56 56" fill="none" stroke="#0d0e10" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="8" y="16" width="32" height="24" rx="3" fill="#fff"/>
+              <rect x="12" y="12" width="32" height="24" rx="3" fill="#fff"/>
+              <rect x="16" y="8" width="32" height="24" rx="3" fill="#fff"/>
+              <path d="M22 18l3 3 7-7"/>
+              <path d="M22 26h16"/>
+            </svg>
+          </div>
+
+          <p class="quote">“My agent just opened its <span class="hl"><span>100th PR</span></span> today.”</p>
+          <p class="desc-p">You used to read every line. The volume's too high now, the model's too confident, and you're still the last human signature on the deploy.</p>
+
+          <div class="aud-foot">
+            <span>Volume &middot; high</span>
+            <span class="needs">Wants → the catch the agent missed</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="aud-summary">
+        <span>Same checklist</span><span class="dot">•</span>
+        <span>Same five minutes</span><span class="dot">•</span>
+        <span>Same weekend on the line</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="pill"><span class="ic">↻</span> Three steps</span>
+          <h2 style="margin-top: 22px;">How Ship Responsibly works.</h2>
+        </div>
+        <p class="lede">Three steps before every deploy. Five minutes total. Zero <em style="color: var(--pink-hot); font-weight: 700;">oh-no</em> mornings.</p>
+      </div>
+
+      <div class="step s1">
+        <div class="num">01.</div>
+        <div class="ill">
+          <div class="ill-card">
+            <div class="head">
+              <span class="step-no">Severity — step 1 of 3</span>
+              <span>What's at stake?</span>
+            </div>
+            <div class="ill-severity">
+              <div class="row"><span class="dot"></span><span>Just you</span></div>
+              <div class="row"><span class="dot"></span><span>Your team</span></div>
+              <div class="row on"><span class="dot"></span><span>Other people's data</span><span class="check">✓</span></div>
+              <div class="row"><span class="dot"></span><span>Other people's money</span></div>
+              <div class="row"><span class="dot"></span><span>Other people's safety</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Pick your level</h3>
+          <p>Match what you're shipping to one of five severity tiers &mdash; from a weekend toy to a hospital intake form. Higher tier, stricter checklist.</p>
+          <span class="arrow">30 seconds &rarr;</span>
+        </div>
+      </div>
+
+      <div class="step s2">
+        <div class="num">02.</div>
+        <div class="ill">
+          <div class="ill-card">
+            <div class="head">
+              <span class="step-no">Pre-flight — step 2 of 3</span>
+              <span>5 questions</span>
+            </div>
+            <div class="ill-checklist">
+              <div class="row done"><span class="box"></span><span class="lbl">No secrets in code</span></div>
+              <div class="row done"><span class="box"></span><span class="lbl">HTTPS enforced</span></div>
+              <div class="row done"><span class="box"></span><span class="lbl">API doesn't leak data</span></div>
+              <div class="row"><span class="box"></span><span class="lbl">Rollback under 5 min</span></div>
+              <div class="row"><span class="box"></span><span class="lbl">Human read the code</span></div>
+              <div class="progress">
+                <span>Progress</span>
+                <span><span class="count">3 / 5</span> cleared</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Run the check</h3>
+          <p>Walk through the five questions for your tier. Pass criteria are written right next to each one. No jargon, no points &mdash; just yes or no.</p>
+          <span class="arrow">5 minutes &rarr;</span>
+        </div>
+      </div>
+
+      <div class="step s3">
+        <div class="num">03.</div>
+        <div class="ill">
+          <div class="ill-verdict">
+            <div class="vcard pass">
+              <span class="ic">✓</span>
+              <span class="lbl">Cleared</span>
+              <span class="sub">Ship it</span>
+            </div>
+            <div class="vcard hold">
+              <span class="ic">!</span>
+              <span class="lbl">Hold</span>
+              <span class="sub">Fix 2 items</span>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Cleared &mdash; or hold</h3>
+          <p>Green across the board? Cleared for departure. Anything red? Hold the deploy, fix what failed, then push. The manual has the fix for every failed question.</p>
+          <span class="arrow">Ship or stop &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── GET THE MANUAL -->
+  <section class="buy" id="buy">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="pill"><span class="ic">📕</span> The manual · ~90 pages</span>
+          <h2 style="margin-top: 22px;">Read it in an<br/>afternoon. Ship better<br/><em style="color: var(--pink-hot); font-weight: 800;">by tomorrow.</em></h2>
+          <p class="lede">The five-level severity model. The 47-item Graduation Checklist. Thirty responsible prompt templates. Seven postmortems from real, recent incidents. Printable appendices for the wall above your desk.</p>
+
+          <div class="price-row">
+            <span class="price"><span class="cur">$</span>19</span>
+            <div class="price-sub">
+              One-time<br/>
+              <b>30-day refund</b>
+            </div>
+          </div>
+
+          <div class="ctas">
+            <a href="#checkout" class="btn btn-primary">Get the manual <span class="arr">↗</span></a>
+            <a href="#sample" class="btn btn-ghost">Free sample chapter</a>
+          </div>
+
+          <div class="fine">
+            <span>PDF + ePub</span><span>Ungated updates</span><span>Personal license</span>
+          </div>
+        </div>
+
+        <div class="book">
+          <span class="badge-pink">$19</span>
+
+          <div class="b-top">
+            <span class="b-tag">Manual</span>
+            <span class="b-ed">v.0.4 · 2026</span>
+          </div>
+
+          <div class="b-mark" aria-hidden="true">
+            <!-- Paper plane in a circle — brand mark -->
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="37" fill="#ffffff" stroke="#0d0e10" stroke-width="2.5"/>
+              <path d="M16 44 L66 22 L46 64 L37 46 Z" fill="#ff4d97" stroke="#0d0e10" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M66 22 L37 46" stroke="#0d0e10" stroke-width="2.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <h3 class="b-title">Ship<br/>Responsibly<span class="dot">.</span></h3>
+
+          <div class="b-rule"></div>
+
+          <p class="b-sub">A pre-flight manual for the vibecoding era.</p>
+
+          <div class="deco" aria-hidden="true">
+            <span class="bk b1"></span>
+            <span class="bk b2"></span>
+            <span class="bk b3"></span>
+            <span class="bk b4"></span>
+            <span class="bk b5"></span>
+            <span class="bk b6"></span>
+            <span class="bk b7"></span>
+          </div>
+
+          <div class="b-foot">
+            <span>10 chapters</span>
+            <span class="sep">●</span>
+            <span>47-pt checklist</span>
+            <span class="sep">●</span>
+            <span class="pn">~90 pp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="brand-block">
+          <span class="brand">
+            <span class="glyph">✈</span>
+            <span>Ship Responsibly</span>
+          </span>
+          <div class="tagline">Pre-flight · vibecoding era</div>
+        </div>
+        <div>
+          <h4>Inspired by</h4>
+          <p>
+            Peter Steinberger's distinction between vibe coding and agentic engineering on <a href="https://lexfridman.com/peter-steinberger-transcript/" target="_blank" rel="noopener">Lex Fridman's Podcast</a>, and Simon Willison's framework for responsible AI-assisted development on <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA" target="_blank" rel="noopener">Lenny's Podcast</a>.
+            <span class="small">Peter, Simon, Lex, and Lenny have not endorsed and are not affiliated with this project.</span>
+          </p>
+        </div>
+      </div>
+      <div class="bottom">
+        <span>© 2026 · Ship Responsibly</span>
+        <span>Vibecoded with ❤️ by <a href="https://x.com/juanbfiguera" target="_blank" rel="noopener">@juanbfiguera</a></span>
+        <span>v.0.4</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

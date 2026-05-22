@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ship Responsibly — A pre-flight manual for the vibecoding era</title>
+<meta name="description" content="A pre-flight manual for people shipping AI-assisted software. For first-time builders and senior engineers alike. $19." />
+<link rel="canonical" href="https://shipresponsibly.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://shipresponsibly.com/" />
+<meta property="og:title" content="Ship Responsibly — A pre-flight manual for the vibecoding era" />
+<meta property="og:description" content="A pre-flight manual for people shipping AI-assisted software. For first-time builders and senior engineers alike. $19." />
+<meta property="og:image" content="https://shipresponsibly.com/assets/og-image.png" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ship Responsibly — A pre-flight manual for the vibecoding era" />
+<meta name="twitter:description" content="A pre-flight manual for people shipping AI-assisted software. For first-time builders and senior engineers alike. $19." />
+<meta name="twitter:image" content="https://shipresponsibly.com/assets/og-image.png" />
+
+<!-- Favicon: white paper plane in a dark square, matching the nav glyph. -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230d0e10'/><text x='50' y='62' font-size='52' font-family='Apple Color Emoji,Segoe UI Emoji,sans-serif' text-anchor='middle' fill='white'>%E2%9C%88</text></svg>" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NH90QYGHK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NH90QYGHK9');
+</script>
+</head>
+<body>
+
+<noscript>
+  <!-- Search engine / no-JS fallback. The page is mostly static; this block
+       restates the proposition so the page is legible without script. -->
+  <div style="background:#0d0e10;color:#fff;padding:14px 22px;font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;">
+    <strong>Ship Responsibly</strong> is a $19 pre-flight manual for the vibecoding era —
+    a five-level severity model, a 47-item Graduation Checklist, thirty responsible
+    prompt templates, and seven postmortems.
+    <a href="/playbook" style="color:#ff4d97;text-decoration:underline;">Get the manual →</a>
+  </div>
+</noscript>
+
+<header class="nav">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Ship Responsibly, home">
+      <span class="glyph" aria-hidden="true">✈</span>
+      <span>Ship Responsibly</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#built">For builders</a>
+      <a href="#how">How it works</a>
+      <a href="#buy">Manual</a>
+    </nav>
+    <a href="/playbook" class="nav-cta">Get the manual <span class="arr" aria-hidden="true">↗</span></a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="pill"><span class="ic" aria-hidden="true">✈︎</span> Pre-Flight Manual · v.0.4</span>
+        <span class="scrolltag" aria-hidden="true">Scroll down <span class="arr">↓</span></span>
+      </div>
+
+      <h1>Anyone can ship now.<br/>Few do it <em>responsibly</em>.</h1>
+
+      <!-- Decorative SHIP wordmark. role=img + aria-label so screen readers
+           announce "Ship" once, not S–H–I–P letter by letter. -->
+      <div class="wordmark" role="img" aria-label="Ship">
+        <span class="letter l-s" aria-hidden="true"><span class="block"></span><span class="char">S</span></span>
+        <span class="letter l-h" aria-hidden="true"><span class="block"></span><span class="char">H</span></span>
+        <span class="letter l-i" aria-hidden="true"><span class="block"></span><span class="char">I</span></span>
+        <span class="letter l-p" aria-hidden="true"><span class="block"></span><span class="char">P</span></span>
+
+        <svg class="mascot" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 92 L220 22 L142 168 L108 110 Z" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round" fill="white"/>
+          <path d="M220 22 L108 110" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M14 92 L108 110 L142 168 Z" fill="#d6c4f0" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M30 134 Q 18 142 8 158" stroke="#0d0e10" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M58 148 Q 48 156 40 170" stroke="#0d0e10" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="built" id="built">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="pill on-lavender"><span class="ic" aria-hidden="true">✦</span> Who's flying today</span>
+          <h2 style="margin-top: 22px;">Built for builders,<br/>grounded in <em>discipline.</em></h2>
+        </div>
+        <div class="desc">
+          <p class="lede">Whether you wrote your first line of code last Tuesday, or you're reviewing your AI's eighth pull request today — the manual is the same. Five minutes. Five questions. Every deploy.</p>
+        </div>
+      </div>
+
+      <div class="audience-grid">
+        <div class="aud a1">
+          <div class="aud-top">
+            <span class="aud-tag">First-time builder</span>
+            <span class="aud-num">01 / 02</span>
+          </div>
+
+          <div class="aud-ill" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" stroke="#0d0e10" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 22h28v14a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V22z" fill="#fff"/>
+              <path d="M38 26h4a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4h-4"/>
+              <path d="M18 8c0 3 2 4 2 7s-2 4-2 6"/>
+              <path d="M26 8c0 3 2 4 2 7s-2 4-2 6"/>
+            </svg>
+          </div>
+
+          <p class="quote">“I learned to code in the time my coffee got <span class="hl"><span>cold.</span></span>”</p>
+          <p class="desc-p">An AI built most of it. You're not totally sure what every file does — and definitely not what happens when a stranger types something rude into the form.</p>
+
+          <div class="aud-foot">
+            <span>Risk &middot; high</span>
+            <span class="needs">Wants → a checklist for their phone</span>
+          </div>
+        </div>
+
+        <div class="aud a2">
+          <div class="aud-top">
+            <span class="aud-tag">Career engineer</span>
+            <span class="aud-num">02 / 02</span>
+          </div>
+
+          <div class="aud-ill" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" stroke="#0d0e10" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="16" width="32" height="24" rx="3" fill="#fff"/>
+              <rect x="12" y="12" width="32" height="24" rx="3" fill="#fff"/>
+              <rect x="16" y="8" width="32" height="24" rx="3" fill="#fff"/>
+              <path d="M22 18l3 3 7-7"/>
+              <path d="M22 26h16"/>
+            </svg>
+          </div>
+
+          <p class="quote">“My agent just opened its <span class="hl"><span>100th PR</span></span> today.”</p>
+          <p class="desc-p">You used to read every line. The volume's too high now, the model's too confident, and you're still the last human signature on the deploy.</p>
+
+          <div class="aud-foot">
+            <span>Volume &middot; high</span>
+            <span class="needs">Wants → the catch the agent missed</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="aud-summary">
+        <span>Same checklist</span><span class="dot" aria-hidden="true">•</span>
+        <span>Same five minutes</span><span class="dot" aria-hidden="true">•</span>
+        <span>Same weekend on the line</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="pill"><span class="ic" aria-hidden="true">↻</span> Three steps</span>
+          <h2 style="margin-top: 22px;">How Ship Responsibly works.</h2>
+        </div>
+        <p class="lede">Three steps before every deploy. Five minutes total. Zero <em>oh-no</em> mornings.</p>
+      </div>
+
+      <div class="step s1">
+        <div class="num">01.</div>
+        <div class="ill" aria-hidden="true">
+          <div class="ill-card">
+            <div class="head">
+              <span class="step-no">Severity — step 1 of 3</span>
+              <span>What's at stake?</span>
+            </div>
+            <div class="ill-severity">
+              <div class="row"><span class="dot"></span><span>Just you</span></div>
+              <div class="row"><span class="dot"></span><span>Your team</span></div>
+              <div class="row on"><span class="dot"></span><span>Other people's data</span><span class="check">✓</span></div>
+              <div class="row"><span class="dot"></span><span>Other people's money</span></div>
+              <div class="row"><span class="dot"></span><span>Other people's safety</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Pick your level</h3>
+          <p>Match what you're shipping to one of five severity tiers &mdash; from a weekend toy to a hospital intake form. Higher tier, stricter checklist.</p>
+          <span class="arrow">30 seconds &rarr;</span>
+        </div>
+      </div>
+
+      <div class="step s2">
+        <div class="num">02.</div>
+        <div class="ill" aria-hidden="true">
+          <div class="ill-card">
+            <div class="head">
+              <span class="step-no">Pre-flight — step 2 of 3</span>
+              <span>5 questions</span>
+            </div>
+            <div class="ill-checklist">
+              <div class="row done"><span class="box"></span><span class="lbl">No secrets in code</span></div>
+              <div class="row done"><span class="box"></span><span class="lbl">HTTPS enforced</span></div>
+              <div class="row done"><span class="box"></span><span class="lbl">API doesn't leak data</span></div>
+              <div class="row"><span class="box"></span><span class="lbl">Rollback under 5 min</span></div>
+              <div class="row"><span class="box"></span><span class="lbl">Human read the code</span></div>
+              <div class="progress">
+                <span>Progress</span>
+                <span><span class="count">3 / 5</span> cleared</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Run the check</h3>
+          <p>Walk through the five questions for your tier. Pass criteria are written right next to each one. No jargon, no points &mdash; just yes or no.</p>
+          <span class="arrow">5 minutes &rarr;</span>
+        </div>
+      </div>
+
+      <div class="step s3">
+        <div class="num">03.</div>
+        <div class="ill" aria-hidden="true">
+          <div class="ill-verdict">
+            <div class="vcard pass">
+              <span class="ic">✓</span>
+              <span class="lbl">Cleared</span>
+              <span class="sub">Ship it</span>
+            </div>
+            <div class="vcard hold">
+              <span class="ic">!</span>
+              <span class="lbl">Hold</span>
+              <span class="sub">Fix 2 items</span>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3>Cleared &mdash; or hold</h3>
+          <p>Green across the board? Cleared for departure. Anything red? Hold the deploy, fix what failed, then push. The manual has the fix for every failed question.</p>
+          <span class="arrow">Ship or stop &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="buy" id="buy">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="pill"><span class="ic" aria-hidden="true">📕</span> The manual · ~90 pages</span>
+          <h2 style="margin-top: 22px;">Read it in an<br/>afternoon. Ship better<br/><em>by tomorrow.</em></h2>
+          <p class="lede">The five-level severity model. The 47-item Graduation Checklist. Thirty responsible prompt templates. Seven postmortems from real, recent incidents. Printable appendices for the wall above your desk.</p>
+
+          <div class="price-row">
+            <span class="price"><span class="cur">$</span>19</span>
+            <div class="price-sub">
+              One-time<br/>
+              <b>30-day refund</b>
+            </div>
+          </div>
+
+          <div class="ctas">
+            <a href="/playbook" class="btn btn-primary">Get the manual <span class="arr" aria-hidden="true">↗</span></a>
+            <a href="/sample" class="btn btn-ghost">Free sample chapter</a>
+          </div>
+
+          <div class="fine">
+            <span>PDF + ePub</span><span>Ungated updates</span><span>Personal license</span>
+          </div>
+        </div>
+
+        <div class="book" aria-hidden="true">
+          <span class="badge-pink">$19</span>
+
+          <div class="b-top">
+            <span class="b-tag">Manual</span>
+            <span class="b-ed">v.0.4 · 2026</span>
+          </div>
+
+          <div class="b-mark">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="37" fill="#ffffff" stroke="#0d0e10" stroke-width="2.5"/>
+              <path d="M16 44 L66 22 L46 64 L37 46 Z" fill="#ff4d97" stroke="#0d0e10" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M66 22 L37 46" stroke="#0d0e10" stroke-width="2.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <h3 class="b-title">Ship<br/>Responsibly<span class="dot">.</span></h3>
+
+          <div class="b-rule"></div>
+
+          <p class="b-sub">A pre-flight manual for the vibecoding era.</p>
+
+          <div class="deco">
+            <span class="bk b1"></span>
+            <span class="bk b2"></span>
+            <span class="bk b3"></span>
+            <span class="bk b4"></span>
+            <span class="bk b5"></span>
+            <span class="bk b6"></span>
+            <span class="bk b7"></span>
+          </div>
+
+          <div class="b-foot">
+            <span>10 chapters</span>
+            <span class="sep">●</span>
+            <span>47-pt checklist</span>
+            <span class="sep">●</span>
+            <span class="pn">~90 pp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand-block">
+        <span class="brand">
+          <span class="glyph" aria-hidden="true">✈</span>
+          <span>Ship Responsibly</span>
+        </span>
+        <div class="tagline">Pre-flight · vibecoding era</div>
+      </div>
+      <div>
+        <h4>Inspired by</h4>
+        <p>
+          Peter Steinberger's distinction between vibe coding and agentic engineering on <a href="https://lexfridman.com/peter-steinberger-transcript/" target="_blank" rel="noopener">Lex Fridman's Podcast</a>, and Simon Willison's framework for responsible AI-assisted development on <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA" target="_blank" rel="noopener">Lenny's Podcast</a>.
+          <span class="small">Peter, Simon, Lex, and Lenny have not endorsed and are not affiliated with this project.</span>
+        </p>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 · Ship Responsibly</span>
+      <span>Vibecoded with ❤️ by <a href="https://x.com/juanbfiguera" target="_blank" rel="noopener">@juanbfiguera</a></span>
+      <span>v.0.4</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>

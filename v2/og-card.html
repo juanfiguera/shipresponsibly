@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>OG Card — Ship Responsibly v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* Exact OG dimensions. No scrollbars, no scrollbars margin. */
+  html, body { margin: 0; padding: 0; background: #ffffff; overflow: hidden; }
+  body {
+    width: 1200px; height: 630px;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    color: #0d0e10;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .card {
+    width: 1200px; height: 630px;
+    padding: 56px 64px;
+    box-sizing: border-box;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  /* Top strip */
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; font-size: 22px; letter-spacing: -0.012em; }
+  .brand .glyph {
+    width: 36px; height: 36px; border-radius: 9px;
+    background: #0d0e10; color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 18px;
+    background: #f6f5f1;
+    border: 1px solid #e6e5e1;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    color: #25272c;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* SHIP wordmark — scaled down for OG. */
+  .wordmark {
+    display: flex; align-items: flex-end; gap: 14px;
+    padding: 6px 0 4px;
+    border-bottom: 2px solid #0d0e10;
+    margin-top: 6px;
+  }
+  .letter {
+    position: relative;
+    font-weight: 800;
+    font-size: 220px;
+    line-height: 0.78;
+    letter-spacing: -0.04em;
+    flex-shrink: 0;
+    padding: 0 6px;
+  }
+  .letter .char {
+    position: relative; z-index: 2;
+    color: transparent;
+    -webkit-text-stroke: 2px #0d0e10;
+  }
+  .letter .block {
+    position: absolute; z-index: 1; pointer-events: none;
+    top: 24%; bottom: 4%; left: 14%; right: 14%;
+  }
+  .l-s .block { background: #d6c4f0; }
+  .l-h .block { background: #ffb6d6; top: 12%; }
+  .l-i .block { background: #b6d4ee; left: 8%; right: 8%; top: 22%; }
+  .l-p .block { background: #f5e69a; top: 18%; }
+
+  /* Paper plane — same SVG as the live site, sized for OG. */
+  .mascot {
+    margin-left: auto;
+    width: 200px; height: 150px;
+    transform: translateY(-10px) rotate(-8deg);
+  }
+
+  /* Headline lives below the wordmark. */
+  .headline {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -0.024em;
+    line-height: 1.02;
+    text-transform: uppercase;
+    margin: 28px 0 0;
+  }
+  .headline em { color: #ff4d97; font-style: normal; font-weight: 800; }
+
+  /* Bottom strip */
+  .bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px; font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #25272c;
+  }
+  .bottom .url { color: #0d0e10; font-weight: 600; }
+  .bottom .badge {
+    background: #ff4d97; color: #fff;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.2em;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="top">
+    <span class="brand">
+      <span class="glyph">✈</span>
+      <span>Ship Responsibly</span>
+    </span>
+    <span class="pill"><span>✈︎</span> Pre-Flight Manual · v.0.4</span>
+  </div>
+
+  <div>
+    <div class="wordmark">
+      <span class="letter l-s"><span class="block"></span><span class="char">S</span></span>
+      <span class="letter l-h"><span class="block"></span><span class="char">H</span></span>
+      <span class="letter l-i"><span class="block"></span><span class="char">I</span></span>
+      <span class="letter l-p"><span class="block"></span><span class="char">P</span></span>
+
+      <svg class="mascot" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 92 L220 22 L142 168 L108 110 Z" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round" fill="white"/>
+        <path d="M220 22 L108 110" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M14 92 L108 110 L142 168 Z" fill="#d6c4f0" stroke="#0d0e10" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M30 134 Q 18 142 8 158" stroke="#0d0e10" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M58 148 Q 48 156 40 170" stroke="#0d0e10" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+
+    <h1 class="headline">Anyone can ship now.<br/>Few do it <em>responsibly</em>.</h1>
+  </div>
+
+  <div class="bottom">
+    <span class="url">shipresponsibly.com</span>
+    <span>$19 · PDF + ePub · 30-day refund</span>
+    <span class="badge">Pre-Flight Manual</span>
+  </div>
+
+</div>
+</body>
+</html>

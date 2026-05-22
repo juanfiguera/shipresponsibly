@@ -4,3 +4,8 @@
 *.ttf
 generate-og.py
 mockups/
+
+# Local render screenshots + OG previews from /plan-design-review
+v2/.render-*.png
+v2/.og-preview.png
+mockups/.hero-v2-render.png
