@@ -441,6 +441,99 @@
     }
     .ill-verdict .vcard.pass .sub { color: var(--bg); }
 
+    /* ─────────────────────────── About the author */
+    .about {
+      padding: 110px 0 110px;
+      border-top: 1px solid var(--rule);
+    }
+    .about .grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 96px; align-items: center;
+    }
+    .about h2 { text-transform: uppercase; max-width: 12ch; }
+    .about h2 em { color: var(--pink-hot); font-weight: 800; }
+    .about .lede { margin-top: 26px; max-width: 52ch; color: var(--ink-soft); }
+    .about .lede b { color: var(--ink); font-weight: 600; }
+    .about .links {
+      margin-top: 28px;
+      display: flex; flex-wrap: wrap; gap: 10px 18px;
+      font-family: var(--mono); font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--ink-mid);
+      align-items: baseline;
+    }
+    .about .links a {
+      color: var(--ink); font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color .15s, border-color .15s;
+    }
+    .about .links a:hover { color: var(--pink-hot); border-bottom-color: var(--pink-hot); }
+    .about .links .arr { font-family: var(--mono); }
+    .about .links .sep { color: var(--ink-mid); }
+    /* Right column: portrait card */
+    .about .card {
+      position: relative;
+      background: var(--mint);
+      border-radius: 18px;
+      padding: 40px 36px 36px;
+      display: flex; flex-direction: column;
+      gap: 24px;
+      box-shadow: 12px 12px 0 -1px var(--bg-soft), 12px 12px 0 0 var(--ink);
+    }
+    .about .card .c-top {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-family: var(--mono); font-size: 10.5px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .about .card .c-top .ed { opacity: 0.7; font-weight: 500; }
+    .about .card .avatar {
+      width: 132px; height: 132px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2.5px solid var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--sans); font-weight: 800;
+      font-size: 56px; letter-spacing: -0.04em;
+      color: var(--ink);
+      margin-top: 8px;
+    }
+    .about .card .name {
+      font-family: var(--sans); font-weight: 800;
+      font-size: 32px; letter-spacing: -0.025em; line-height: 1;
+      color: var(--ink);
+      margin: 0;
+    }
+    .about .card .role {
+      font-family: var(--sans); font-size: 15px;
+      color: var(--ink-soft); line-height: 1.45;
+      max-width: 26ch;
+    }
+    .about .card .role b { color: var(--ink); font-weight: 600; }
+    .about .card .c-rule {
+      width: 44px; height: 3px;
+      background: var(--ink);
+      margin: 2px 0;
+    }
+    .about .card .c-foot {
+      margin-top: auto;
+      padding-top: 12px;
+      display: flex; gap: 12px; align-items: baseline;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink);
+    }
+    .about .card .c-foot .sep { color: var(--ink); opacity: 0.4; }
+
+    @media (max-width: 900px) {
+      .about { padding: 80px 0; }
+      .about .grid { grid-template-columns: 1fr; gap: 48px; }
+      .about .card { padding: 32px 28px; box-shadow: 8px 8px 0 -1px var(--bg-soft), 8px 8px 0 0 var(--ink); }
+    }
+
     /* ─────────────────────────── Get the manual */
     .buy {
       background: var(--bg-soft);
@@ -597,8 +690,8 @@
 
     /* ─────────────────────────── Footer */
     .footer {
-      background: var(--bg);
-      padding: 56px 0 32px;
+      background: var(--bg-soft);
+      padding: 64px 0 36px;
     }
     .footer-grid { display: grid; grid-template-columns: 1.2fr 1.6fr; gap: 80px; align-items: start; }
     .footer .brand-block .brand {
@@ -636,7 +729,7 @@
     }
     .footer .bottom {
       margin-top: 48px; padding-top: 22px;
-      border-top: 1px solid var(--rule);
+      border-top: 1px solid rgba(13,14,16,0.12);
       display: flex; justify-content: space-between; gap: 24px;
       font-family: var(--mono); font-size: 11px;
       letter-spacing: 0.16em; text-transform: uppercase;
@@ -689,6 +782,7 @@
         <a href="#built">For builders</a>
         <a href="#how">How it works</a>
         <a href="#buy">Manual</a>
+        <a href="#about">About</a>
       </nav>
       <a href="#buy" class="nav-cta">Get the manual <span class="arr">↗</span></a>
     </div>
@@ -961,6 +1055,40 @@
     </div>
   </section>
 
+  <!-- ─────────────────────────── ABOUT THE AUTHOR -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="pill"><span class="ic">✦</span> About the author</span>
+          <h2 style="margin-top: 22px;">Hi, I'm <em>Juan.</em></h2>
+          <p class="lede">I'm a Director of Product at American Express Digital Labs, where I work on AI-powered personalization, and the creator of <a href="https://agenticpoa.com" style="color: var(--pink-hot); text-decoration: underline; text-decoration-color: rgba(255,77,151,0.4); text-underline-offset: 3px;">Agentic Power of Attorney (APOA)</a> — an open-source authorization framework for AI agents. I previously co-founded HarvestYield (acquired 2025). Ship Responsibly grew out of personally shipping at least one of the horror stories in Chapter 8 — which is partly why this book exists.</p>
+          <div class="links">
+            <a href="https://www.juanfiguera.com">juanfiguera.com <span class="arr">↗</span></a>
+            <span class="sep">·</span>
+            <a href="https://github.com/juanfiguera">github/juanfiguera <span class="arr">↗</span></a>
+            <span class="sep">·</span>
+            <a href="https://x.com/juanbfiguera">@juanbfiguera <span class="arr">↗</span></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="c-top">
+            <span>The author</span>
+          </div>
+
+          <div class="avatar">JF</div>
+
+          <h3 class="name">Juan Figuera</h3>
+
+          <div class="c-rule"></div>
+
+          <p class="role">Writing, building, and shipping from New York.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─────────────────────────── FOOTER -->
   <footer class="footer">
     <div class="wrap">
@@ -982,7 +1110,6 @@
       </div>
       <div class="bottom">
         <span>© 2026 · Ship Responsibly</span>
-        <span>Vibecoded with ❤️ by <a href="https://x.com/juanbfiguera" target="_blank" rel="noopener">@juanbfiguera</a></span>
         <span>v.0.4</span>
       </div>
     </div>
