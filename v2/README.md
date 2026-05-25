@@ -205,7 +205,7 @@ Two font families. No italics anywhere (browser default `<em>` italic is explici
 - **Left column:**
   - Pill: "📕 The manual · ~90 pages"
   - `h2`: "Read it in an<br/>afternoon. Ship better<br/><em>by tomorrow.</em>" (em is hot pink 800)
-  - Lede: "The five-level severity model. The 47-item Graduation Checklist. Thirty responsible prompt templates. Seven postmortems from real, recent incidents. Printable appendices for the wall above your desk."
+  - Lede: "The five-level severity model. The 25-point pre-flight checklist. Thirty responsible prompt templates. Seven postmortems from real, recent incidents. Printable appendices for the wall above your desk."
   - Price row (flex baseline, 22px gap):
     - `.price`: "$19" — $ is `--ink-mid` weight 500, "19" is ink weight 800
     - Size: `clamp(64px, 7vw, 96px)`, weight 800, letter-spacing -0.04em
@@ -235,7 +235,7 @@ Two font families. No italics anywhere (browser default `<em>` italic is explici
     - Each bar 14px wide, varying heights (50–86px), border-radius 2px
     - Colors: ink, mint, ink, pink, ink, sky, ink (alternating ink with the 3 pastels)
   - **Footer (`.b-foot`):** flex wrap, 8px gap, 1.5px dashed top border (30% ink), padding-top 18px
-    - "10 chapters · 47-pt checklist · ~90 pp" with `●` bullet separators (40% ink) and `~90 pp` in ink-mid weight 500
+    - "10 chapters · 25-pt checklist · ~90 pp" with `●` bullet separators (40% ink) and `~90 pp` in ink-mid weight 500
 
 ### 6. Footer
 

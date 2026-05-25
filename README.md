@@ -7,7 +7,7 @@ Anyone can ship now. Few do it responsibly.
 Visit **[shipresponsibly.com](https://shipresponsibly.com)** for the manual:
 
 - A five-level severity model — match what you're shipping to a tier
-- A 47-item Graduation Checklist for pre-flight checks
+- A 25-point pre-flight checklist
 - Thirty responsible prompt templates
 - Seven postmortems from real, recent incidents
 - Printable appendices
