@@ -4,7 +4,12 @@
   "redirects": [
     {
       "source": "/playbook",
-      "destination": "https://juan.gumroad.com/l/ship-responsibly?utm_source=shipresponsibly&utm_medium=referral&utm_campaign=playbook_cta",
+      "destination": "/manual",
+      "permanent": true
+    },
+    {
+      "source": "/manual",
+      "destination": "https://juan.gumroad.com/l/ship-responsibly?utm_source=shipresponsibly&utm_medium=referral&utm_campaign=manual_cta",
       "permanent": false
     },
     {
